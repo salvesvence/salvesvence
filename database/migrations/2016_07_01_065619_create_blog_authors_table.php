@@ -13,7 +13,6 @@ class CreateBlogAuthorsTable extends Migration
     public function up()
     {
         Schema::create('blog_authors', function (Blueprint $table) {
-
             $table->increments('id');
 
             $table->string('slug');
@@ -24,7 +23,6 @@ class CreateBlogAuthorsTable extends Migration
         });
 
         Schema::create('blog_authors_translations', function (Blueprint $table) {
-
             $table->increments('id');
 
             $table->unsignedInteger('blog_author_id');
@@ -34,7 +32,6 @@ class CreateBlogAuthorsTable extends Migration
         });
 
         Schema::table('blog_authors_translations', function (Blueprint $table) {
-
             $table->foreign('blog_author_id')
                 ->references('id')->on('blog_authors')
                 ->onDelete('cascade');
