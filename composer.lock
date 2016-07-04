@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "933d7dbbbc78d05e9b5f32fcbc364886",
-    "content-hash": "78e42d942b35503e70f9ed8e535cb3f1",
+    "hash": "222930cbdfc0a2be19001351b6b762f1",
+    "content-hash": "0eede69eccc2b96cb9c80832b6d34e2c",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -63,20 +63,20 @@
         },
         {
             "name": "dimsav/laravel-translatable",
-            "version": "v5.1",
+            "version": "v5.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dimsav/laravel-translatable.git",
-                "reference": "1116d7d15dcd3b3c96ad6df2b72694f919b90a3b"
+                "reference": "4534a17da5494ac27cf5ce743e228533c66b7275"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/1116d7d15dcd3b3c96ad6df2b72694f919b90a3b",
-                "reference": "1116d7d15dcd3b3c96ad6df2b72694f919b90a3b",
+                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/4534a17da5494ac27cf5ce743e228533c66b7275",
+                "reference": "4534a17da5494ac27cf5ce743e228533c66b7275",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~5.0",
+                "illuminate/support": "~5.1",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -110,7 +110,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2015-05-07 16:07:37"
+            "time": "2016-04-21 22:12:50"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
