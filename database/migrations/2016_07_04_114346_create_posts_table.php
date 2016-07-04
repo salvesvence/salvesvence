@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBlogPostsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateBlogPostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('blog_post', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
 
             $table->unsignedInteger('author_id');
@@ -21,10 +21,10 @@ class CreateBlogPostsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('blog_posts_translations', function (Blueprint $table) {
+        Schema::create('posts_translations', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('blog_post_id');
+            $table->unsignedInteger('post_id');
             $table->string('locale')->index();
 
             $table->string('slug');
@@ -33,17 +33,17 @@ class CreateBlogPostsTable extends Migration
             $table->text('body')->nullable();
         });
 
-        Schema::table('blog_post', function (Blueprint $table) {
+        Schema::table('posts', function (Blueprint $table) {
             $table->foreign('author_id')
-                ->references('id')->on('blog_authors');
+                ->references('id')->on('authors');
 
             $table->foreign('category_id')
-                ->references('id')->on('blog_categories');
+                ->references('id')->on('categories');
         });
 
-        Schema::table('blog_posts_translations', function (Blueprint $table) {
-            $table->foreign('blog_post_id')
-                ->references('id')->on('blog_post')
+        Schema::table('posts_translations', function (Blueprint $table) {
+            $table->foreign('post_id')
+                ->references('id')->on('posts')
                 ->onDelete('cascade');
         });
     }
@@ -55,7 +55,7 @@ class CreateBlogPostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_posts_translations');
-        Schema::dropIfExists('blog_post');
+        Schema::dropIfExists('posts_translations');
+        Schema::dropIfExists('posts');
     }
 }

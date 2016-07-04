@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBlogCategoriesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,25 +12,25 @@ class CreateBlogCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('blog_categories', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
 
             $table->timestamps();
         });
 
-        Schema::create('blog_categories_translations', function (Blueprint $table) {
+        Schema::create('categories_translations', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('blog_category_id');
+            $table->unsignedInteger('category_id');
             $table->string('locale')->index();
 
             $table->string('slug');
             $table->string('name');
         });
 
-        Schema::table('blog_categories_translations', function (Blueprint $table) {
-            $table->foreign('blog_category_id')
-                ->references('id')->on('blog_categories')
+        Schema::table('categories_translations', function (Blueprint $table) {
+            $table->foreign('category_id')
+                ->references('id')->on('categories')
                 ->onDelete('cascade');
         });
     }
@@ -42,7 +42,7 @@ class CreateBlogCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_categories_translations');
-        Schema::dropIfExists('blog_categories');
+        Schema::dropIfExists('categories_translations');
+        Schema::dropIfExists('categories');
     }
 }
