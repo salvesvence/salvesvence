@@ -12,7 +12,7 @@ class BlogPost extends EloquentModel
      *
      * @var string
      */
-    protected $table = 'blog_posts';
+    protected $table = 'blog_post';
 
     public $translatedAttributes = ['slug', 'title', 'intro', 'body'];
 
