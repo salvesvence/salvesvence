@@ -12,7 +12,7 @@ class CreateBlogPostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('blog_posts', function (Blueprint $table) {
+        Schema::create('blog_post', function (Blueprint $table) {
             $table->increments('id');
 
             $table->unsignedInteger('author_id');
@@ -33,7 +33,7 @@ class CreateBlogPostsTable extends Migration
             $table->text('body')->nullable();
         });
 
-        Schema::table('blog_posts', function (Blueprint $table) {
+        Schema::table('blog_post', function (Blueprint $table) {
             $table->foreign('author_id')
                 ->references('id')->on('blog_authors');
 
@@ -56,6 +56,6 @@ class CreateBlogPostsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('blog_posts_translations');
-        Schema::dropIfExists('blog_posts');
+        Schema::dropIfExists('blog_post');
     }
 }

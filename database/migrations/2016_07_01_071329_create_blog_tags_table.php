@@ -41,7 +41,7 @@ class CreateBlogTagsTable extends Migration
 
         Schema::table('blog_posts_tags', function (Blueprint $table) {
             $table->foreign('blog_post_id')
-                ->references('id')->on('blog_posts')
+                ->references('id')->on('blog_post')
                 ->onDelete('cascade');
 
             $table->foreign('blog_tag_id')
@@ -58,6 +58,6 @@ class CreateBlogTagsTable extends Migration
     {
         Schema::dropIfExists('blog_posts_tags');
         Schema::dropIfExists('blog_tags_translations');
-        Schema::dropIfExists('blog_tags');
+        Schema::dropIfExists('blog_tag');
     }
 }
