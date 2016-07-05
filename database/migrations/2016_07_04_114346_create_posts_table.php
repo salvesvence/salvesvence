@@ -35,7 +35,7 @@ class CreatePostsTable extends Migration
 
         Schema::table('posts', function (Blueprint $table) {
             $table->foreign('author_id')
-                ->references('id')->on('authors');
+                ->references('id')->on('users');
 
             $table->foreign('category_id')
                 ->references('id')->on('categories');
