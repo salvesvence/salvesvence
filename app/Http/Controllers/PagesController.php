@@ -27,6 +27,26 @@ class PagesController extends Controller
     }
 
     /**
+     * Blog page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function blog()
+    {
+        return view('blog');
+    }
+
+    /**
+     * Projects page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function projects()
+    {
+        return view('projects');
+    }
+
+    /**
      * Contact page
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

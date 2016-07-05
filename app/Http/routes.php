@@ -21,6 +21,16 @@ Route::get('me', [
     'uses' => 'PagesController@me'
 ]);
 
+Route::get('blog', [
+    'as' => 'blog',
+    'uses' => 'PagesController@blog'
+]);
+
+Route::get('projects', [
+    'as' => 'projects',
+    'uses' => 'PagesController@projects'
+]);
+
 Route::get('contact', [
     'as' => 'contact',
     'uses' => 'PagesController@contact'
