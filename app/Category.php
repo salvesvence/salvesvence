@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    use Translatable
+    use Translatable;
 
     public $translatedAttributes = ['slug', 'name'];
 
