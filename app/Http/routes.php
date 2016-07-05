@@ -11,9 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'as' => 'welcome',
+    'uses' => 'PagesController@welcome'
+]);
+
+Route::get('me', [
+    'as' => 'me',
+    'uses' => 'PagesController@me'
+]);
+
+Route::get('contact', [
+    'as' => 'contact',
+    'uses' => 'PagesController@contact'
+]);
 
 Route::auth();
 
