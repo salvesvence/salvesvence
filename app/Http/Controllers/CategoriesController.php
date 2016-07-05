@@ -57,6 +57,8 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
+//        app()->setLocale($locale);
+//
 //        $category = \App\Category::first();
 //
 //        return $category->name;
