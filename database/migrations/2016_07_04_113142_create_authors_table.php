@@ -15,10 +15,6 @@ class CreateAuthorsTable extends Migration
         Schema::create('authors', function (Blueprint $table) {
             $table->increments('id');
 
-//            $table->string('slug');
-//            $table->string('firstname');
-//            $table->string('lastname');
-
             $table->timestamps();
         });
 
@@ -28,6 +24,9 @@ class CreateAuthorsTable extends Migration
             $table->unsignedInteger('author_id');
             $table->string('locale')->index();
 
+            $table->string('slug');
+            $table->string('firstname');
+            $table->string('lastname');
             $table->text('info');
         });
 
