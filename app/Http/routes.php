@@ -19,7 +19,6 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/posts', function() {
-
-//    return \App\BlogPost::all();
-});
+Route::resource('categories', 'CategoriesController');
+Route::resource('tags', 'TagsController');
+Route::resource('posts', 'PostsController');
