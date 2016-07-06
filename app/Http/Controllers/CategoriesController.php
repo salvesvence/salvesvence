@@ -22,7 +22,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(15);
+        $categories = Category::translatedIn(app()->getLocale())->paginate(15);
 
         return view('categories.index', compact('categories'));
     }
@@ -45,26 +45,23 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-//        $category = new \App\Category();
-//        $category->save();
-//
-//        foreach (['en', 'nl', 'fr', 'de'] as $locale) {
-//            $category->translateOrNew($locale)->name = "Category Title {$locale}";
-//            $category->translateOrNew($locale)->slug = "Category Slug {$locale}";
-//        }
-//
-//        $category->save();
-//
-//        echo 'Created an category with some translations!';
+        $category = new Category;
+
+        $category->translateOrNew(app()->getLocale())->name = $request->name;
+        $category->translateOrNew(app()->getLocale())->slug = str_slug($request->name);
+
+        $category->save();
+
+        return redirect()->route('categories.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
 //        app()->setLocale($locale);
 //
