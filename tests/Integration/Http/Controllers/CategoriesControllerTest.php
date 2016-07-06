@@ -38,4 +38,11 @@ class CategoriesControllerTest extends TestCase {
         $this->visit('/categories')
              ->see('');
     }
+
+    /** @test */
+    function it_see_the_create_category_view()
+    {
+        $this->visit('/categories/create')
+             ->see('Crear Categoría:');
+    }
 }
