@@ -16,7 +16,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of categories.
      *
      * @return \Illuminate\Http\Response
      */
@@ -28,7 +28,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new category.
      *
      * @return \Illuminate\Http\Response
      */
