@@ -28,13 +28,14 @@
 
                             <div class="form-group col-sm-12">
 
-                                <input type="submit" class="btn" value="GUARDAR"/>
+                                <input type="submit" class="btn" value="GUARDAR">
 
                             </div>
 
                         </form>
 
                     </div>
+
                 </div>
             </div>
         </div>
