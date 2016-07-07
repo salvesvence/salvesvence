@@ -45,4 +45,14 @@ class CategoriesControllerTest extends TestCase {
         $this->visit('/categories/create')
              ->see('Crear Categoría:');
     }
+
+
+    /** @test */
+    function it_store_a_new_category()
+    {
+        $this->visit('/categories/create')
+             ->type('Nueva Categoría', 'name')
+             ->press('save')
+             ->seePageIs('/categories');
+    }
 }
