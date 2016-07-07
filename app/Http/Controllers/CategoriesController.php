@@ -72,12 +72,14 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param $slug
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $category = Category::whereTranslation('slug', $slug)->firstOrFail();
+
+        return view('categories.edit', compact('category'));
     }
 
     /**
