@@ -56,18 +56,16 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified category.
      *
      * @param $slug
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
     {
-//        app()->setLocale($locale);
-//
-//        $category = \App\Category::first();
-//
-//        return $category->name;
+        $category = Category::whereTranslation('slug', $slug)->firstOrFail();
+
+        return view('categories.show', compact('category'));
     }
 
     /**
