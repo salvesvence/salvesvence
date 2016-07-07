@@ -6,19 +6,23 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
 
-                <h1>Categorías:</h1>
+                <div class="panel-heading">Categorías:</div>
 
-                <ul>
+                <div class="panel-body">
 
-                    @foreach($categories as $category)
+                    <ul class="list-group">
 
-                        <li>
-                            <a href="{{ route('categories.show', $category->slug) }}">{{ $category->name }}</a>
-                        </li>
+                        @foreach($categories as $category)
 
-                    @endforeach
+                            <li class="list-group-item">
+                                <a href="{{ route('categories.show', $category->slug) }}">{{ $category->name }}</a>
+                            </li>
 
-                </ul>
+                        @endforeach
+
+                    </ul>
+                    
+                </div>
 
             </div>
         </div>
