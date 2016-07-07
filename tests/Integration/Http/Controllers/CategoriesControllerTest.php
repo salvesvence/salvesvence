@@ -55,4 +55,21 @@ class CategoriesControllerTest extends TestCase {
              ->press('save')
              ->seePageIs('/categories');
     }
+
+    /** @test */
+    function it_see_the_specified_category_view()
+    {
+        $stCategory = new Category;
+
+        $stCategory->translateOrNew('en')->name = "Web Development";
+        $stCategory->translateOrNew('en')->slug = "web-development";
+
+        $stCategory->translateOrNew('es')->name = "Desarrollo Web";
+        $stCategory->translateOrNew('es')->slug = "desarrollo-web";
+
+        $stCategory->save();
+
+        $this->visit("/categories/{$stCategory->slug}/edit")
+            ->see("Editar Categoría {$stCategory->name}:");
+    }
 }
