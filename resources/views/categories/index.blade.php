@@ -5,23 +5,55 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Categorías:</div>
 
-                <div class="panel-heading">Categorías:</div>
+                    <div class="panel-body">
 
-                <div class="panel-body">
+                        <table class="table table-striped table-bordered">
 
-                    <ul class="list-group">
+                            <thead>
 
-                        @foreach($categories as $category)
+                                <tr>
 
-                            <li class="list-group-item">
-                                <a href="{{ route('categories.show', $category->slug) }}">{{ $category->name }}</a>
-                            </li>
+                                    <td>#</td>
+                                    <td>Nombre</td>
+                                    <td class="text-center">Editar</td>
+                                    <td class="text-center">Borrar</td>
 
-                        @endforeach
+                                </tr>
 
-                    </ul>
-                    
+                            </thead>
+
+                            <tbody>
+
+                                @foreach($categories as $category)
+
+                                    <tr>
+
+                                        <td>{{ $category->id }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td>
+                                            <a href="{{ route('categories.show', $category->slug) }}">
+                                                <span class=""></span>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('categories.destroy', $category->slug) }}">
+                                                <span class=""></span>
+                                            </a>
+                                        </td>
+
+                                    </tr>
+
+                                @endforeach
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
                 </div>
 
             </div>
