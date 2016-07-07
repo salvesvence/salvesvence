@@ -28,7 +28,7 @@
 
                             <div class="form-group col-sm-12">
 
-                                <input type="submit" class="btn" value="GUARDAR">
+                                <input type="submit" class="btn" name="save" value="GUARDAR">
 
                             </div>
 
