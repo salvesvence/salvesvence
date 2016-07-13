@@ -24,7 +24,7 @@
 
                             <div class="form-group col-sm-6">
                                 <a href="{{ URL::previous() }}" class="btn btn-primary pull-right">
-                                    <span class="glyphicon glyphicon-triangle-left" aria-hidden="true">ATRÁS</span>
+                                    <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> ATRÁS
                                 </a>
                             </div>
 
