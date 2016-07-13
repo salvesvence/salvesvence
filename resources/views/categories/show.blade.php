@@ -10,8 +10,22 @@
 
                     <div class="panel-body">
 
-                        <p>Nombre: {{ $category->name }}</p>
-                        <p>Slug: {{ $category->slug }}</p>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <article class="categorie">
+                                    <p>Nombre: {{ $category->name }}</p>
+                                    <p>Slug: {{ $category->slug }}</p>
+                                </article>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a href="{{ URL::previous() }}" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-triangle-left" aria-hidden="true">ATRÁS</span>
+                                </a>
+                            </div>
+                        </div>
 
                     </div>
 
