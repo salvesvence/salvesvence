@@ -3,7 +3,6 @@
 use App\Category;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
-use App\Http\Requests;
 
 class CategoriesController extends Controller
 {
@@ -39,7 +38,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created category in storage.
      *
      * @param CategoryRequest $request
      * @return \Illuminate\Http\Response
@@ -70,7 +69,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified category.
      *
      * @param $slug
      * @return \Illuminate\Http\Response
@@ -83,7 +82,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified category in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -95,7 +94,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified category from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
