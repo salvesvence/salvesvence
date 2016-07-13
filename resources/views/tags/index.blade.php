@@ -11,54 +11,16 @@
                     <div class="panel-body">
 
                         <table class="table table-striped table-bordered">
-
-                            <thead>
-
-                            <tr>
-
-                                <td>#</td>
-                                <td>Nombre</td>
-                                <td class="text-center">Editar</td>
-                                <td class="text-center">Borrar</td>
-
-                            </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                            @foreach($tags as $tag)
-
-                                <tr>
-
-                                    <td>{{ $tag->id }}</td>
-                                    <td>{{ $tag->name }}</td>
-                                    <td>
-                                        <a href="{{ route('tags.edit', $tag->slug) }}" class="btn-block text-center">
-                                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('tags.destroy', $tag->slug) }}" class="btn-block text-center">
-                                            <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-                                        </a>
-                                    </td>
-
-                                </tr>
-
-                            @endforeach
-
-                            </tbody>
-
+                            @include('tags.partials.thead')
+                            @include('tags.partials.tbody')
                         </table>
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <a href="{{ route('tags.create') }}">
-                                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> EDITAR
-                                </a>
+                                @include('partials.navigation.create', ['route' => route('tags.create')])
                             </div>
                         </div>
+
                     </div>
 
                 </div>
