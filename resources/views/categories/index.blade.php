@@ -52,6 +52,13 @@
 
                         </table>
 
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a href="{{ route('categories.create') }}">
+                                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> EDITAR
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
