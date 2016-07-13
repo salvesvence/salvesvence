@@ -21,9 +21,7 @@
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <a href="{{ URL::previous() }}" class="btn btn-primary">
-                                    <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> ATRÁS
-                                </a>
+                                @include('partials.navigation.back')
                             </div>
                         </div>
 

@@ -14,18 +14,15 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group col-sm-12">
-                                <label for="name">Nombre</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
+                                @include('partials.forms.name')
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <input type="submit" class="btn" name="save" value="GUARDAR">
+                                @include('partials.navigation.save')
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <a href="{{ URL::previous() }}" class="btn btn-primary pull-right">
-                                    <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> ATRÁS
-                                </a>
+                                @include('partials.navigation.back')
                             </div>
 
                         </form>
