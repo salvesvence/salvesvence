@@ -84,13 +84,17 @@ class CategoriesController extends Controller
     /**
      * Update the specified category in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param CategoryRequest $request
+     * @param $slug
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryRequest $request, $slug)
     {
-        //
+        Category::whereTranslation('slug', $slug)->firstOrFail()
+                    ->getTranslation(app()->getLocale())
+                    ->update($request->all());
+
+        return redirect()->route('categories.index');
     }
 
     /**
