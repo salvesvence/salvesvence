@@ -34,13 +34,13 @@
                                         <td>{{ $category->id }}</td>
                                         <td>{{ $category->name }}</td>
                                         <td>
-                                            <a href="{{ route('categories.show', $category->slug) }}">
-                                                <span class=""></span>
+                                            <a href="{{ route('categories.show', $category->slug) }}" class="btn-block text-center">
+                                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="{{ route('categories.destroy', $category->slug) }}">
-                                                <span class=""></span>
+                                            <a href="{{ route('categories.destroy', $category->slug) }}" class="btn-block text-center">
+                                                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
                                             </a>
                                         </td>
 
