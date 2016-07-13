@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
@@ -21,7 +22,9 @@ class TagsController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::translatedIn(app()->getLocale())->paginate(15);
+
+        return view('tags.index', compact('tags'));
     }
 
     /**
