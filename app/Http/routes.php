@@ -71,8 +71,14 @@ Route::get('categories/{slug}/delete', [
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::resource('tags', 'TagsController');
+Route::resource('tags', 'TagsController', ['except' =>
+    ['destroy']
+]);
 
+Route::get('tags/{slug}/delete', [
+    'as' => 'tags.destroy',
+    'uses' => 'TagsController@destroy'
+]);
 
 /*
 |--------------------------------------------------------------------------
