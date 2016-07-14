@@ -24,7 +24,7 @@ class CategoriesController extends Controller
     {
         $categories = Category::translatedIn(app()->getLocale())->paginate(15);
 
-        return view('categories.index', compact('categories'));
+        return view('web.pages.categories.index', compact('categories'));
     }
 
     /**
@@ -34,7 +34,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return view('web.pages.categories.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class CategoriesController extends Controller
     {
         $category = Category::whereTranslation('slug', $slug)->firstOrFail();
 
-        return view('categories.show', compact('category'));
+        return view('web.pages.categories.show', compact('category'));
     }
 
     /**
@@ -78,7 +78,7 @@ class CategoriesController extends Controller
     {
         $category = Category::whereTranslation('slug', $slug)->firstOrFail();
 
-        return view('categories.edit', compact('category'));
+        return view('web.pages.categories.edit', compact('category'));
     }
 
     /**
