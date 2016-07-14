@@ -101,11 +101,13 @@ class TagsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+        Tag::whereTranslation('slug', $slug)->delete();
+
+        return redirect()->route('tags.index');
     }
 }
