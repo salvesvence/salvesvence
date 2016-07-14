@@ -11,8 +11,8 @@
                     <div class="panel-body">
                         <form id="update-category" action="{{ route('categories.update', $category->slug) }}" method="post">
 
-                            <input type="hidden" name="_method" value="PUT">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            {{ method_field('PUT') }}
+                            {{ csrf_field() }}
 
                             <div class="form-group col-sm-12">
                                 @include('web.atoms.inputs.name', ['name' => $category->name])
