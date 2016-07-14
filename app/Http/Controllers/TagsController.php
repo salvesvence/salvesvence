@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Http\Requests\TagRequest;
 use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -40,22 +41,19 @@ class TagsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param TagRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TagRequest $request)
     {
-//        $tag = new \App\Tag();
-//        $tag->save();
-//
-//        foreach (['en', 'nl', 'fr', 'de'] as $locale) {
-//            $tag->translateOrNew($locale)->name = "Tag Title {$locale}";
-//            $tag->translateOrNew($locale)->slug = "Tag Slug {$locale}";
-//        }
-//
-//        $tag->save();
-//
-//        echo 'Created an tag with some translations!';
+        $tag = new Tag;
+
+        $tag->translateOrNew(app()->getLocale())->name = $request->name;
+        $tag->translateOrNew(app()->getLocale())->slug = str_slug($request->name);
+
+        $tag->save();
+
+        return redirect()->route('tags.index');
     }
 
     /**
