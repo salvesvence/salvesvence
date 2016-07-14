@@ -48,6 +48,21 @@ class TagsControllerTest extends TestCase {
              ->see('Nuevo Tag');
     }
 
+    /** @test */
+    function it_see_the_specified_tag_view()
+    {
+
+    }
+
+    /** @test */
+    function it_see_the_edit_page_of_specified_tag()
+    {
+        $tag = $this->createTag();
+
+        $this->visit("/tags/{$tag->slug}/edit")
+             ->see("Editar Tag {$tag->name}:");
+    }
+
     /**
      * Create a new tag.
      *
