@@ -59,7 +59,7 @@ class TagsController extends Controller
     /**
      * Display the specified tag.
      *
-     * @param  int  $slug
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
@@ -72,7 +72,7 @@ class TagsController extends Controller
     /**
      * Show the form for editing the specified tag.
      *
-     * @param  int  $slug
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
     public function edit($slug)
@@ -85,13 +85,17 @@ class TagsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param TagRequest|Request $request
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TagRequest $request, $slug)
     {
-        //
+        Tag::whereTranslation('slug', $slug)->firstOrFail()
+            ->getTranslation(app()->getLocale())
+            ->update($request->all());
+
+        return redirect()->route('tags.index');
     }
 
     /**
