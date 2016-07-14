@@ -31,6 +31,18 @@ class TagsControllerTest extends TestCase {
             ->see('');
     }
 
+    /** @test */
+    function it_see_the_create_tag_view()
+    {
+        $this->visit('/tags/create')
+             ->see('Crear Tag:');
+    }
+
+    /**
+     * Create a new tag.
+     *
+     * @return Tag
+     */
     private function createTag()
     {
         $tag = new Tag;
