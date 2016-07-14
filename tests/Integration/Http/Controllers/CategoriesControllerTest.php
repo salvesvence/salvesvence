@@ -51,6 +51,12 @@ class CategoriesControllerTest extends TestCase {
     /** @test */
     function it_see_the_specified_category_view()
     {
+
+    }
+
+    /** @test */
+    function it_see_the_edit_page_of_specified_category()
+    {
         $category = $this->createCategory();
 
         $this->visit("/categories/{$category->slug}/edit")
@@ -58,9 +64,16 @@ class CategoriesControllerTest extends TestCase {
     }
 
     /** @test */
-    function it_see_the_edit_page_of_specified_category()
+    function it_cans_update_a_specified_category()
     {
+        $category = $this->createCategory();
 
+        $this->visit("/categories/{$category->slug}/edit")
+             ->see("Editar Categoría {$category->name}:")
+             ->type('Nueva Categoría', 'name')
+             ->press('save')
+             ->seePageIs('/categories')
+             ->see('Nueva Categoría');
     }
 
     private function createCategory()
