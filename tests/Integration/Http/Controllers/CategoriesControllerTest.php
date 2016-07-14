@@ -38,7 +38,6 @@ class CategoriesControllerTest extends TestCase {
              ->see('Crear Categoría:');
     }
 
-
     /** @test */
     function it_store_a_new_category()
     {

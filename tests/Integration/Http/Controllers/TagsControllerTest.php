@@ -38,6 +38,16 @@ class TagsControllerTest extends TestCase {
              ->see('Crear Tag:');
     }
 
+    /** @test */
+    function it_store_a_new_tag()
+    {
+        $this->visit('/tags/create')
+             ->type('Nuevo Tag', 'name')
+             ->press('save')
+             ->seePageIs('/tags')
+             ->see('Nuevo Tag');
+    }
+
     /**
      * Create a new tag.
      *
