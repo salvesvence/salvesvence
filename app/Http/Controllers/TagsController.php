@@ -17,7 +17,7 @@ class TagsController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of tags.
      *
      * @return \Illuminate\Http\Response
      */
@@ -29,7 +29,7 @@ class TagsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new tag.
      *
      * @return \Illuminate\Http\Response
      */
@@ -39,7 +39,7 @@ class TagsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created tag in storage.
      *
      * @param TagRequest|Request $request
      * @return \Illuminate\Http\Response
@@ -57,29 +57,29 @@ class TagsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified tag.
      *
-     * @param  int  $id
+     * @param  int  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-//        app()->setLocale($locale);
-//
-//        $tag = \App\Tag::first();
-//
-//        return $tag->name;
+        $tag = Tag::whereTranslation('slug', $slug)->firstOrFail();
+
+        return view('web.pages.tags.show', compact('tag'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified tag.
      *
-     * @param  int  $id
+     * @param  int  $slug
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $tag = Tag::whereTranslation('slug', $slug)->firstOrFail();
+
+        return view('web.pages.tags.edit', compact('tag'));
     }
 
     /**
