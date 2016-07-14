@@ -7,10 +7,10 @@
             <td>{{ $category->id }}</td>
             <td>{{ $category->name }}</td>
             <td>
-                @include('partials.navigation.edit', ['route' => route('categories.edit', $category->slug)])
+                @include('web.atoms.links.edit', ['route' => route('categories.edit', $category->slug)])
             </td>
             <td>
-                @include('partials.navigation.delete', ['route' => route('categories.destroy', $category->slug)])
+                @include('web.atoms.links.delete', ['route' => route('categories.destroy', $category->slug)])
             </td>
 
         </tr>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('web.templates.app')
 
 @section('content')
 
@@ -21,7 +21,7 @@
 
                         <div class="row">
                             <div class="col-sm-12">
-                                @include('partials.navigation.back')
+                                @include('web.atoms.buttons.back')
                             </div>
                         </div>
 

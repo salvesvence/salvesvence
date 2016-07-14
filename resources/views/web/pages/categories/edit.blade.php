@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('web.templates.app')
 
 @section('content')
 
@@ -15,15 +15,15 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group col-sm-12">
-                                @include('partials.forms.name', ['name' => $category->name])
+                                @include('web.atoms.inputs.name', ['name' => $category->name])
                             </div>
 
                             <div class="form-group col-sm-6">
-                                @include('partials.navigation.save')
+                                @include('web.atoms.buttons.save')
                             </div>
 
                             <div class="form-group col-sm-6">
-                                @include('partials.navigation.back')
+                                @include('web.atoms.buttons.back')
                             </div>
 
                         </form>
