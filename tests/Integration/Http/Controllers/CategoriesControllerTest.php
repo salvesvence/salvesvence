@@ -13,15 +13,7 @@ class CategoriesControllerTest extends TestCase {
     /** @test */
     function it_see_all_cateories_by_current_locale()
     {
-        $stCategory = new Category;
-
-        $stCategory->translateOrNew('en')->name = "Web Development";
-        $stCategory->translateOrNew('en')->slug = "web-development";
-
-        $stCategory->translateOrNew('es')->name = "Desarrollo Web";
-        $stCategory->translateOrNew('es')->slug = "desarrollo-web";
-
-        $stCategory->save();
+        $this->createCategory();
 
         app()->setLocale('es');
 
@@ -59,17 +51,30 @@ class CategoriesControllerTest extends TestCase {
     /** @test */
     function it_see_the_specified_category_view()
     {
-        $stCategory = new Category;
+        $category = $this->createCategory();
 
-        $stCategory->translateOrNew('en')->name = "Web Development";
-        $stCategory->translateOrNew('en')->slug = "web-development";
+        $this->visit("/categories/{$category->slug}/edit")
+             ->see("Editar Categoría {$category->name}:");
+    }
 
-        $stCategory->translateOrNew('es')->name = "Desarrollo Web";
-        $stCategory->translateOrNew('es')->slug = "desarrollo-web";
+    /** @test */
+    function it_see_the_edit_page_of_specified_category()
+    {
 
-        $stCategory->save();
+    }
 
-        $this->visit("/categories/{$stCategory->slug}/edit")
-            ->see("Editar Categoría {$stCategory->name}:");
+    private function createCategory()
+    {
+        $category = new Category;
+
+        $category->translateOrNew('en')->name = "Web Development";
+        $category->translateOrNew('en')->slug = "web-development";
+
+        $category->translateOrNew('es')->name = "Desarrollo Web";
+        $category->translateOrNew('es')->slug = "desarrollo-web";
+
+        $category->save();
+
+        return $category;
     }
 }
