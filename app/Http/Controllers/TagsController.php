@@ -34,7 +34,7 @@ class TagsController extends Controller
      */
     public function create()
     {
-        //
+        return view('web.pages.tags.create');
     }
 
     /**
