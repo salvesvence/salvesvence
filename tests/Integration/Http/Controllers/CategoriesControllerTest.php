@@ -76,6 +76,21 @@ class CategoriesControllerTest extends TestCase {
              ->see('Nueva Categoría');
     }
 
+    /** @test */
+    function it_cans_delete_a_specified_category()
+    {
+        $category = $this->createCategory();
+
+        $this->visit("/categories/{$category->slug}/delete")
+             ->seePageIs('/categories')
+             ->dontSee($category->slug);
+    }
+
+    /**
+     * Craete a new category
+     *
+     * @return Category
+     */
     private function createCategory()
     {
         $category = new Category;
