@@ -11,8 +11,8 @@
                     <div class="panel-body">
 
                         <table class="table table-striped table-bordered">
-                            @include('tags.partials.thead')
-                            @include('tags.partials.tbody')
+                            @include('web.pages.tags.partials.thead')
+                            @include('web.pages.tags.partials.tbody')
                         </table>
 
                         <div class="row">
