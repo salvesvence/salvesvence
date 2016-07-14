@@ -38,7 +38,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Store a newly created category in storage.
+     * Store a newly created category.
      *
      * @param CategoryRequest $request
      * @return \Illuminate\Http\Response
@@ -82,7 +82,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Update the specified category in storage.
+     * Update the specified category.
      *
      * @param CategoryRequest $request
      * @param $slug
@@ -98,7 +98,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Remove the specified category from storage.
+     * Remove the specified category.
      *
      * @param $slug
      * @return \Illuminate\Http\Response

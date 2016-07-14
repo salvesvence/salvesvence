@@ -39,7 +39,7 @@ class TagsController extends Controller
     }
 
     /**
-     * Store a newly created tag in storage.
+     * Store a newly created tag.
      *
      * @param TagRequest|Request $request
      * @return \Illuminate\Http\Response
@@ -83,7 +83,7 @@ class TagsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified tag.
      *
      * @param TagRequest|Request $request
      * @param  string $slug
@@ -99,7 +99,7 @@ class TagsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified tag.
      *
      * @param  string $slug
      * @return \Illuminate\Http\Response
