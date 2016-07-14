@@ -63,6 +63,19 @@ class TagsControllerTest extends TestCase {
              ->see("Editar Tag {$tag->name}:");
     }
 
+    /** @test */
+    function it_cans_update_a_specified_tag()
+    {
+        $tag = $this->createTag();
+
+        $this->visit("/tags/{$tag->slug}/edit")
+            ->see("Editar Tag {$tag->name}:")
+            ->type('Segundo Tag', 'name')
+            ->press('save')
+            ->seePageIs('/tags')
+            ->see('Segundo Tag');
+    }
+
     /**
      * Create a new tag.
      *
