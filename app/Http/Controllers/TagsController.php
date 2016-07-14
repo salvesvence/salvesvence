@@ -24,7 +24,7 @@ class TagsController extends Controller
     {
         $tags = Tag::translatedIn(app()->getLocale())->paginate(15);
 
-        return view('tags.index', compact('tags'));
+        return view('web.pages.tags.index', compact('tags'));
     }
 
     /**
