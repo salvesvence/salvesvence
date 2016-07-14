@@ -1,9 +1,9 @@
 <?php namespace Integration\Http\Controllers;
 
+use TestCase;
 use App\Category;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use TestCase;
 
 class CategoriesControllerTest extends TestCase {
 
