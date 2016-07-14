@@ -69,11 +69,21 @@ class TagsControllerTest extends TestCase {
         $tag = $this->createTag();
 
         $this->visit("/tags/{$tag->slug}/edit")
-            ->see("Editar Tag {$tag->name}:")
-            ->type('Segundo Tag', 'name')
-            ->press('save')
-            ->seePageIs('/tags')
-            ->see('Segundo Tag');
+             ->see("Editar Tag {$tag->name}:")
+             ->type('Segundo Tag', 'name')
+             ->press('save')
+             ->seePageIs('/tags')
+             ->see('Segundo Tag');
+    }
+
+    /** @test */
+    function it_cans_delete_a_specified_tag()
+    {
+        $tag = $this->createTag();
+
+        $this->visit("/tags/{$tag->slug}/delete")
+             ->seePageIs('/tags')
+             ->dontSee($tag->slug);
     }
 
     /**
