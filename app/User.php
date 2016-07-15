@@ -1,12 +1,9 @@
 <?php namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends Authenticatable
 {
-    use EntrustUserTrait;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -33,5 +30,15 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany('App\Post', 'user_id');
+    }
+
+    /**
+     * Roles asocciated with the current user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
     }
 }
