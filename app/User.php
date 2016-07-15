@@ -29,7 +29,7 @@ class User extends Authenticatable
      */
     public function posts()
     {
-        return $this->hasMany('App\Post', 'user_id');
+        return $this->hasMany('App\Post', 'author_id');
     }
 
     /**
@@ -40,5 +40,21 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * If the current user has the role given.
+     *
+     * @param $role
+     * @return mixed
+     */
+    public function hasRole($role)
+    {
+        if(is_string($role)) {
+
+            return $this->roles->contains('name', $role);
+        }
+
+        return !! $role->intersect($this->roles)->count();
     }
 }
