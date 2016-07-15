@@ -149,14 +149,22 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Application Service Providers...
-         */
+        |----------------------------------------------------------------------
+        | Application Service Providers...
+        |----------------------------------------------------------------------
+        */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+        |----------------------------------------------------------------------
+        | New Service Providers
+        |----------------------------------------------------------------------
+        */
         Dimsav\Translatable\TranslatableServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
     ],
 
     /*
@@ -203,6 +211,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*
+        |----------------------------------------------------------------------
+        | New Aliases
+        |----------------------------------------------------------------------
+        */
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
     ],
 
 ];
