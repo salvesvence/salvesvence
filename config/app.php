@@ -164,7 +164,6 @@ return [
         |----------------------------------------------------------------------
         */
         Dimsav\Translatable\TranslatableServiceProvider::class,
-        Zizaco\Entrust\EntrustServiceProvider::class,
     ],
 
     /*
@@ -216,7 +215,6 @@ return [
         | New Aliases
         |----------------------------------------------------------------------
         */
-        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
     ],
 
 ];
