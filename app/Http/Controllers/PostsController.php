@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
@@ -21,7 +22,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::translatedIn(app()->getLocale())->paginate(15);
+
+        return view('web.pages.posts.index', compact('posts'));
     }
 
     /**
