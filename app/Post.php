@@ -38,4 +38,15 @@ class Post extends Model
     {
         return $this->belongsToMany('App\Tag');
     }
+
+    /**
+     * If the current post is owner from the user given.
+     *
+     * @param User $user
+     * @return bool
+     */
+    public function isOwnedBy(User $user)
+    {
+        return $user->id === $this->user_id;
+    }
 }

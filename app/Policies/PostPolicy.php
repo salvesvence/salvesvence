@@ -1,6 +1,4 @@
-<?php
-
-namespace App\Policies;
+<?php namespace App\Policies;
 
 use App\Post;
 use App\User;
@@ -19,6 +17,6 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->hasRole('admin') || $user->id === $post->user_id;
+        return $user->hasRole('admin') || $post->isOwnedBy($user);
     }
 }
