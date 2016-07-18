@@ -16,7 +16,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of posts.
      *
      * @return \Illuminate\Http\Response
      */
@@ -28,13 +28,13 @@ class PostsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new post.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('web.pages.posts.create');
     }
 
     /**
