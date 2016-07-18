@@ -12,6 +12,13 @@ class PostTranslation extends Model
     protected $table = 'posts_translations';
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    public $fillable = ['slug', 'title', 'intro', 'body'];
+
+    /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
