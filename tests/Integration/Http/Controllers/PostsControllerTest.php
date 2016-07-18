@@ -59,15 +59,13 @@ class PostsControllerTest extends TestCase {
            'category_id' => factory(Category::class)->create()->id,
         ]);
 
-        $post->translateOrNew('en')->title = $this->enFaker->title;
-        $post->translateOrNew('en')->slug = $this->enFaker->slug;
-        $post->translateOrNew('en')->intro = $this->enFaker->sentence;
-        $post->translateOrNew('en')->body = $this->enFaker->paragraph;
+        foreach(['es', 'en'] as $lang) {
 
-        $post->translateOrNew('es')->title = $this->enFaker->title;
-        $post->translateOrNew('es')->slug = $this->enFaker->slug;
-        $post->translateOrNew('es')->intro = $this->enFaker->sentence;
-        $post->translateOrNew('es')->body = $this->enFaker->paragraph;
+            $post->translateOrNew($lang)->title = $this->{$lang . 'Faker'}->title;
+            $post->translateOrNew($lang)->slug = $this->{$lang . 'Faker'}->slug;
+            $post->translateOrNew($lang)->intro = $this->{$lang . 'Faker'}->sentence;
+            $post->translateOrNew($lang)->body = $this->{$lang . 'Faker'}->paragraph;
+        }
 
         $post->save();
 
