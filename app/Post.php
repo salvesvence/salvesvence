@@ -7,6 +7,18 @@ class Post extends Model
 {
     use Translatable;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['author_id', 'category_id'];
+
+    /**
+     * The translated attributes
+     *
+     * @var array
+     */
     public $translatedAttributes = ['slug', 'title', 'intro', 'body'];
 
     /**
