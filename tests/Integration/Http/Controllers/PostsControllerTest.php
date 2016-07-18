@@ -52,6 +52,13 @@ class PostsControllerTest extends TestCase {
              ->see('');
     }
 
+    /** @test */
+    function it_see_the_create_post_view()
+    {
+        $this->visit('/posts/create')
+             ->see('Crear Post:');
+    }
+
     private function createPost()
     {
         $post = Post::create([
