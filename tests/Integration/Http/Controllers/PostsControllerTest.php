@@ -64,7 +64,6 @@ class PostsControllerTest extends TestCase {
         $post->translateOrNew('en')->intro = $this->enFaker->sentence;
         $post->translateOrNew('en')->body = $this->enFaker->paragraph;
 
-
         $post->translateOrNew('es')->title = $this->enFaker->title;
         $post->translateOrNew('es')->slug = $this->enFaker->slug;
         $post->translateOrNew('es')->intro = $this->enFaker->sentence;
