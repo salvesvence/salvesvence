@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -41,14 +42,14 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param PostRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         $post = Post::create([
             'author_id' => Auth::user()->id,
-            'category_id' => $request->category ?: null,
+            'category_id' => $request->category,
         ]);
 
         $post->translateOrNew(app()->getLocale())->title = $request->title;
