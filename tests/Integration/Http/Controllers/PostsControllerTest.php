@@ -73,6 +73,12 @@ class PostsControllerTest extends TestCase {
              ->seePageIs('/posts');
     }
 
+    /** @test */
+    function it_see_the_specified_post_view()
+    {
+
+    }
+
     /**
      * Create a new post.
      *
