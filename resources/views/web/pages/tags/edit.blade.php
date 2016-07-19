@@ -18,13 +18,7 @@
                                 @include('web.atoms.inputs.name', ['name' => $tag->name])
                             </div>
 
-                            <div class="form-group col-sm-6">
-                                @include('web.atoms.buttons.back')
-                            </div>
-
-                            <div class="form-group col-sm-6">
-                                @include('web.atoms.buttons.save')
-                            </div>
+                            @include('web.molecules.forms.footer')
 
                         </form>
                     </div>
