@@ -3,6 +3,7 @@
 use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -45,24 +46,18 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-//        $post = new \App\Post();
-//        $post->save();
-//
-//        foreach (['en', 'nl', 'fr', 'de'] as $locale) {
-//            $post->translateOrNew($locale)->title = "Tag Title {$locale}";
-//            $post->translateOrNew($locale)->slug = "Tag Slug {$locale}";
-//            $post->translateOrNew($locale)->intro = "Tag Intro {$locale}";
-//            $post->translateOrNew($locale)->body = "Tag Body {$locale}";
-//        }
-//
-//        $post->save();
-//
-//        $post->author()->associate(\App\User::first());
-//        $post->category()->associate(\App\Category::first());
-//        $post->tags()->attach(\App\Tag::first());
-//        $post->save();
-//
-//        echo 'Created an tag with some translations!';
+        $post = Post::create([
+            'author_id' => Auth::user()->id,
+            'category_id' => $request->category ?: null,
+        ]);
+
+        $post->translateOrNew(app()->getLocale())->title = $request->title;
+        $post->translateOrNew(app()->getLocale())->slug = str_slug($request->title);
+        $post->translateOrNew(app()->getLocale())->body = $request->body;
+
+        $post->save();
+
+        return redirect()->route('posts.index');
     }
 
     /**
