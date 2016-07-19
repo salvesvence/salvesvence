@@ -29,22 +29,21 @@ class CreatePostsTable extends Migration
 
             $table->string('slug');
             $table->string('title');
-            $table->text('intro')->nullable();
-            $table->text('body')->nullable();
+            $table->text('body');
         });
 
         Schema::table('posts', function (Blueprint $table) {
             $table->foreign('author_id')
-                ->references('id')->on('users');
+                  ->references('id')->on('users');
 
             $table->foreign('category_id')
-                ->references('id')->on('categories');
+                  ->references('id')->on('categories');
         });
 
         Schema::table('posts_translations', function (Blueprint $table) {
             $table->foreign('post_id')
-                ->references('id')->on('posts')
-                ->onDelete('cascade');
+                  ->references('id')->on('posts')
+                  ->onDelete('cascade');
         });
     }
 
