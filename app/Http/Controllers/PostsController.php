@@ -64,16 +64,14 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-//        app()->setLocale($locale);
-//
-//        $post = \App\Post::first();
-//
-//        return $post->category;
+        $post = Post::whereTranslation('slug', $slug)->firstOrFail();
+
+        return view('web.pages.posts.show', compact('post'));
     }
 
     /**
