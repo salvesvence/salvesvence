@@ -1,5 +1,6 @@
 <?php namespace Integration\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use TestCase;
 use App\Post;
 use App\User;
@@ -59,6 +60,24 @@ class PostsControllerTest extends TestCase {
              ->see('Crear Post:');
     }
 
+    /** @test */
+    function it_store_a_new_post()
+    {
+        $user = factory(User::class)->create();
+
+        $this->actingAs($user)
+             ->visit('/posts/create')
+             ->type('Nuevo Post', 'title')
+             ->type('Nuevo Cuerpp de Post', 'body')
+             ->press('save')
+             ->seePageIs('/posts');
+    }
+
+    /**
+     * Create a new post.
+     *
+     * @return static
+     */
     private function createPost()
     {
         $post = Post::create([
@@ -70,7 +89,6 @@ class PostsControllerTest extends TestCase {
 
             $post->translateOrNew($lang)->title = $this->{$lang . 'Faker'}->title;
             $post->translateOrNew($lang)->slug = $this->{$lang . 'Faker'}->slug;
-            $post->translateOrNew($lang)->intro = $this->{$lang . 'Faker'}->sentence;
             $post->translateOrNew($lang)->body = $this->{$lang . 'Faker'}->paragraph;
         }
 
