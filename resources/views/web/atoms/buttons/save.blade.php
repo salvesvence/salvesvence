@@ -1,1 +1,1 @@
-<input type="submit" class="btn" name="save" value="GUARDAR">
+<input type="submit" class="btn pull-right" name="save" value="GUARDAR">
