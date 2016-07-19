@@ -14,15 +14,19 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group col-sm-12">
-                                @include('web.atoms.inputs.name')
+                                @include('web.atoms.inputs.title')
                             </div>
 
-                            <div class="form-group col-xs-6">
-                                @include('web.atoms.buttons.save')
+                            <div class="form-group col-sm-12">
+                                @include('web.atoms.textareas.body')
                             </div>
 
                             <div class="form-group col-xs-6">
                                 @include('web.atoms.buttons.back')
+                            </div>
+
+                            <div class="form-group col-xs-6">
+                                @include('web.atoms.buttons.save')
                             </div>
 
                         </form>
