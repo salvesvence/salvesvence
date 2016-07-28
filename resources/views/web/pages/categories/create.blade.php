@@ -18,35 +18,25 @@
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-
                             <div role="tabpanel" class="tab-pane fade in active" id="spanish">
-
                                 <div class="row">
-
                                     <div class="col-sm-12">
                                         <hr>
                                     </div>
 
                                     @include('web.pages.categories.partials.form')
-
                                 </div>
-
                             </div>
 
                             <div role="tabpanel" class="tab-pane fade" id="english">
-
                                 <div class="row">
-
                                     <div class="col-sm-12">
                                         <hr>
                                     </div>
 
                                     @include('web.pages.categories.partials.form')
-
                                 </div>
-
                             </div>
-
                         </div>
 
                     </div>
