@@ -12,6 +12,8 @@ class CategoriesController extends Controller
      */
     public function __construct()
     {
+        parent::__construct();
+
         $this->middleware('auth');
     }
 
@@ -22,7 +24,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::translatedIn(app()->getLocale())->paginate(15);
+        $categories = Category::translatedIn($this->locale)->paginate(15);
 
         return view('web.pages.categories.index', compact('categories'));
     }
@@ -47,8 +49,8 @@ class CategoriesController extends Controller
     {
         $category = new Category;
 
-        $category->translateOrNew(app()->getLocale())->name = $request->name;
-        $category->translateOrNew(app()->getLocale())->slug = str_slug($request->name);
+        $category->translateOrNew($this->locale)->name = $request->name;
+        $category->translateOrNew($this->locale)->slug = str_slug($request->name);
 
         $category->save();
 
@@ -91,7 +93,7 @@ class CategoriesController extends Controller
     public function update(CategoryRequest $request, $slug)
     {
         Category::whereTranslation('slug', $slug)->firstOrFail()
-                    ->getTranslation(app()->getLocale())
+                    ->getTranslation($this->locale)
                     ->update($request->all());
 
         return redirect()->route('categories.index');

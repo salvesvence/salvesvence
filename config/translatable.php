@@ -13,10 +13,7 @@ return [
     'locales' => [
         'en',
         'fr',
-        'es' => [
-            'MX', // mexican spanish
-            'CO', // colombian spanish
-        ],
+        'es',
     ],
 
     /*
@@ -41,7 +38,7 @@ return [
     | you can specify what default should be used here.
     |
     */
-    'locale' => null,
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
