@@ -9,6 +9,5 @@ elixir(function(mix) {
     mix.sass('app.scss')
         .version(['css/app.css'])
         .copy(bootstrapPath + '/fonts', 'public/fonts')
-        .copy(bootstrapPath + '/javascripts/*.js', 'resources/assets/js')
-        .copy(bootstrapPath + '/stylesheets', 'resources/assets/sass');
+        .copy(bootstrapPath + '/javascripts/bootstrap.min.js', 'resources/assets/js');
 });
