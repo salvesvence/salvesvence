@@ -13,6 +13,8 @@ class TagsController extends Controller
      */
     public function __construct()
     {
+        parent::__construct();
+
         $this->middleware('auth');
     }
 
@@ -23,7 +25,7 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $tags = Tag::translatedIn(app()->getLocale())->paginate(15);
+        $tags = Tag::translatedIn($this->locale)->paginate(15);
 
         return view('web.pages.tags.index', compact('tags'));
     }
@@ -48,8 +50,8 @@ class TagsController extends Controller
     {
         $tag = new Tag;
 
-        $tag->translateOrNew(app()->getLocale())->name = $request->name;
-        $tag->translateOrNew(app()->getLocale())->slug = str_slug($request->name);
+        $tag->translateOrNew($this->locale)->name = $request->name;
+        $tag->translateOrNew($this->locale)->slug = str_slug($request->name);
 
         $tag->save();
 
