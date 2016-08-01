@@ -15,7 +15,10 @@
             <div class="col-sm-12">
                 <hr>
             </div>
-            @include('web.pages.categories.partials.form', ['locale' => 'es'])
+            @include('web.pages.categories.partials.form', [
+                'locale' => 'es',
+                'route' => route('categories.store')
+            ])
         </div>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="en">
@@ -23,7 +26,10 @@
             <div class="col-sm-12">
                 <hr>
             </div>
-            @include('web.pages.categories.partials.form', ['locale' => 'en'])
+            @include('web.pages.categories.partials.form', [
+                'locale' => 'en',
+                'route' => route('categories.store')
+            ])
         </div>
     </div>
 </div>
