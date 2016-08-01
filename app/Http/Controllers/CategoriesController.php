@@ -49,8 +49,8 @@ class CategoriesController extends Controller
     {
         $category = new Category;
 
-        $category->translateOrNew($this->locale)->name = $request->name;
-        $category->translateOrNew($this->locale)->slug = str_slug($request->name);
+        $category->translateOrNew($request->get('locale'))->name = $request->name;
+        $category->translateOrNew($request->get('locale'))->slug = str_slug($request->name);
 
         $category->save();
 
