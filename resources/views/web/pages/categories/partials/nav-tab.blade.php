@@ -1,10 +1,10 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
-        <a href="#es" aria-controls="es" role="tab" data-toggle="tab">EspaÃ±ol</a>
+        <a href="#es" aria-controls="es" role="tab" data-toggle="tab">Español</a>
     </li>
     <li role="presentation">
-        <a href="#en" aria-controls="en" role="tab" data-toggle="tab">InglÃ©s</a>
+        <a href="#en" aria-controls="en" role="tab" data-toggle="tab">Inglés</a>
     </li>
 </ul>
 
