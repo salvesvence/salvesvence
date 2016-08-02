@@ -16,7 +16,7 @@ class CategoryTranslation extends Model
      *
      * @var array
      */
-    protected $fillable = ['slug', 'name'];
+    protected $fillable = ['category_id', 'locale', 'slug', 'name'];
 
     /**
      * Indicates if the model should be timestamped.
