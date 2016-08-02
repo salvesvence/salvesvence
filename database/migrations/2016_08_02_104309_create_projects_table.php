@@ -28,7 +28,7 @@ class CreateProjectsTable extends Migration
             $table->string('description', 300);
         });
 
-        Schema::table('categories_translations', function (Blueprint $table) {
+        Schema::table('projects_translations', function (Blueprint $table) {
             $table->foreign('project_id')
                 ->references('id')->on('projects')
                 ->onDelete('cascade');
