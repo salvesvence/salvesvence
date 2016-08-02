@@ -8,7 +8,10 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Crear Categoría:</div>
                     <div class="panel-body">
-                        @include('web.pages.categories.partials.nav-tab')
+                        @include('web.pages.categories.partials.nav-tab', [
+                            'action' => route('categories.store'),
+                            'method' => 'POST'
+                        ])
                     </div>
                 </div>
             </div>

@@ -9,7 +9,9 @@
                     <div class="panel-heading">Editar Categoría {{ $category->name }}:</div>
                     <div class="panel-body">
                         @include('web.pages.categories.partials.nav-tab', [
-                            'route' => route('categories.update', $category->slug)
+                            'action' => route('categories.update', $category->slug),
+                            'method' => 'PUT',
+                            'name' => $category->name,
                         ])
                     </div>
                 </div>
