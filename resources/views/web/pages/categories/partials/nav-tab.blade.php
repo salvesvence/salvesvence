@@ -17,7 +17,8 @@
             </div>
             @include('web.pages.categories.partials.form', [
                 'locale' => 'es',
-                'route' => route('categories.store')
+                'route' => route('categories.store'),
+                'name' => $category->hasTranslation('es') ? $category->translate('es')->name : ''
             ])
         </div>
     </div>
@@ -28,7 +29,8 @@
             </div>
             @include('web.pages.categories.partials.form', [
                 'locale' => 'en',
-                'route' => route('categories.store')
+                'route' => route('categories.store'),
+                'name' => $category->hasTranslation('en') ? $category->translate('en')->name : ''
             ])
         </div>
     </div>
