@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Category;
+use App\CategoryTranslation;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 
@@ -92,9 +93,12 @@ class CategoriesController extends Controller
      */
     public function update(CategoryRequest $request, $slug)
     {
-        Category::whereTranslation('slug', $slug)->firstOrFail()
-                    ->getTranslation($this->locale)
-                    ->update($request->all());
+        $category = Category::whereTranslation('slug', $slug)->firstOrFail();
+
+        $category->translateOrNew($request->get('locale'))->name = $request->name;
+        $category->translateOrNew($request->get('locale'))->slug = str_slug($request->name);
+
+        $category->save();
 
         return redirect()->route('categories.index');
     }
