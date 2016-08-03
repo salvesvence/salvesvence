@@ -78,6 +78,7 @@ Route::put('tags/{tag}',        ['as' => 'tags.update',     'uses' => 'TagsContr
 Route::get('tags/{tag}/edit',   ['as' => 'tags.edit',       'uses' => 'TagsController@edit']);
 Route::get('tags/{tag}/delete', ['as' => 'tags.destroy',    'uses' => 'TagsController@destroy']);
 
+
 /*
 |--------------------------------------------------------------------------
 | Posts Routes
@@ -88,14 +89,14 @@ Route::get('tags/{tag}/delete', ['as' => 'tags.destroy',    'uses' => 'TagsContr
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::resource('posts', 'PostsController', ['except' =>
-    ['destroy']
+Route::resource('posts', 'PostsController', ['only' =>
+    ['index', 'create', 'store']
 ]);
 
-Route::get('posts/{slug}/delete', [
-    'as' => 'posts.destroy',
-    'uses' => 'PostsController@destroy'
-]);
+Route::put('posts/{post}',        ['as' => 'posts.update',     'uses' => 'PostsController@update']);
+Route::get('posts/{post}/edit',   ['as' => 'posts.edit',       'uses' => 'PostsController@edit']);
+Route::get('posts/{post}/delete', ['as' => 'posts.destroy',    'uses' => 'PostsController@destroy']);
+
 
 /*
 |--------------------------------------------------------------------------
