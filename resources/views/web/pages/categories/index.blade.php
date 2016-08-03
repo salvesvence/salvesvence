@@ -7,7 +7,6 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">Categorías:</div>
-
                     <div class="panel-body">
 
                         <table class="table table-striped table-bordered">
@@ -22,9 +21,7 @@
                         </div>
 
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
