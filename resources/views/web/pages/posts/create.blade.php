@@ -12,6 +12,7 @@
                         <form id="store-category" action="{{ route('posts.store') }}" method="post">
 
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="category_id" value="{{ \App\Category::first()->id }}">
 
                             <div class="form-group col-sm-12">
                                 @include('web.atoms.inputs.title')

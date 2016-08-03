@@ -100,7 +100,6 @@ class TagsController extends Controller
      */
     public function destroy($tag)
     {
-
         $tag->delete();
 
         return redirect()->route('tags.index');

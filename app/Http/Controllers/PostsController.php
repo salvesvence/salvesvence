@@ -47,16 +47,13 @@ class PostsController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $post = Post::create([
+        $request->merge([
             'author_id' => Auth::user()->id,
-            'category_id' => $request->category,
+            'category_id' => $request->category_id,
+            'slug' => str_slug($request->title)
         ]);
 
-        $post->title = $request->title;
-        $post->slug = str_slug($request->title);
-        $post->body = $request->body;
-
-        $post->save();
+        Post::create($request->all());
 
         return redirect()->route('posts.index');
     }
