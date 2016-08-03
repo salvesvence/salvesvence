@@ -16,9 +16,9 @@ Route::get('/', [
     'uses' => 'PagesController@welcome'
 ]);
 
-Route::get('me', [
-    'as' => 'me',
-    'uses' => 'PagesController@me'
+Route::get('about', [
+    'as' => 'about',
+    'uses' => 'PagesController@about'
 ]);
 
 Route::get('blog', [
