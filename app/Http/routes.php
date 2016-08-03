@@ -98,3 +98,22 @@ Route::get('posts/{slug}/delete', [
     'as' => 'posts.destroy',
     'uses' => 'PostsController@destroy'
 ]);
+
+/*
+|--------------------------------------------------------------------------
+| Projects Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the controller to call when that URI is requested.
+|
+*/
+Route::resource('projects', 'ProjectsController', ['except' =>
+    ['destroy']
+]);
+
+Route::get('projects/{slug}/delete', [
+    'as' => 'projects.destroy',
+    'uses' => 'ProjectsController@destroy'
+]);
