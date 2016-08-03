@@ -8,10 +8,17 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Crear Categoría:</div>
                     <div class="panel-body">
-                        @include('web.pages.categories.partials.nav-tab', [
-                            'action' => route('categories.store'),
-                            'method' => 'POST'
-                        ])
+                        <form id="store-category" action="{{ route('categories.store') }}" method="post">
+
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                            <div class="form-group col-sm-12">
+                                @include('web.atoms.inputs.name')
+                            </div>
+
+                            @include('web.molecules.forms.footer')
+
+                        </form>
                     </div>
                 </div>
             </div>

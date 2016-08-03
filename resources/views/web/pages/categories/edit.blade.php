@@ -8,11 +8,18 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Editar Categoría {{ $category->name }}:</div>
                     <div class="panel-body">
-                        @include('web.pages.categories.partials.nav-tab', [
-                            'action' => route('categories.update', $category->slug),
-                            'method' => 'PUT',
-                            'name' => $category->name,
-                        ])
+                        <form id="update-category" action="{{ route('categories.update', $category->slug) }}" method="post">
+
+                            {{ method_field('PUT') }}
+                            {{ csrf_field() }}
+
+                            <div class="form-group col-sm-12">
+                                @include('web.atoms.inputs.name', ['name' => $category->name])
+                            </div>
+
+                            @include('web.molecules.forms.footer')
+
+                        </form>
                     </div>
                 </div>
             </div>
