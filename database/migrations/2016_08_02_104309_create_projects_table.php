@@ -14,24 +14,10 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
-        });
-
-        Schema::create('projects_translations', function (Blueprint $table) {
-            $table->increments('id');
-
-            $table->unsignedInteger('project_id');
-            $table->string('locale')->index();
-
             $table->string('slug');
             $table->string('name');
             $table->string('description', 300);
-        });
-
-        Schema::table('projects_translations', function (Blueprint $table) {
-            $table->foreign('project_id')
-                ->references('id')->on('projects')
-                ->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -42,7 +28,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects_translations');
         Schema::dropIfExists('projects');
     }
 }
