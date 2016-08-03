@@ -83,13 +83,17 @@ class PostsController extends Controller
     /**
      * Update the specified post in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param PostRequest|Request $request
      * @param $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $post)
+    public function update(PostRequest $request, $post)
     {
-        //
+        $request->merge(['slug' => str_slug($request->title)]);
+
+        $post->update($request->all());
+
+        return redirect()->route('posts.index');
     }
 
     /**
