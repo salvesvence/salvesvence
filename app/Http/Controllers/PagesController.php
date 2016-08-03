@@ -21,9 +21,9 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function me()
+    public function about()
     {
-        return view('me');
+        return view('web.pages.about.index');
     }
 
     /**
