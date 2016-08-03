@@ -22,7 +22,7 @@ class CategoryRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|unique:categories_translations'
+            'name' => 'required|unique:categories'
         ];
     }
 }
