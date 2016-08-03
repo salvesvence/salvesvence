@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Project;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,13 +10,24 @@ use App\Http\Requests;
 class ProjectsController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $projects = Project::paginate(15);
+
+        return view('web.pages.projects.index', compact('projects'));
     }
 
     /**
@@ -25,7 +37,7 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        //
+        return view('web.pages.projects.create');
     }
 
     /**
