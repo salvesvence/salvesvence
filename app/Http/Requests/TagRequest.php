@@ -22,7 +22,7 @@ class TagRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|unique:tags_translations'
+            'name' => 'required|unique:tags'
         ];
     }
 }
