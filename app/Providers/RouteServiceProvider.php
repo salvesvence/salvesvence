@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Category;
+use App\Post;
 use App\Tag;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -34,6 +35,10 @@ class RouteServiceProvider extends ServiceProvider
 
         $router->bind('category', function ($value) {
             return Category::where('slug', $value)->firstOrFail();
+        });
+
+        $router->bind('post', function ($value) {
+            return Post::where('slug', $value)->firstOrFail();
         });
     }
 
