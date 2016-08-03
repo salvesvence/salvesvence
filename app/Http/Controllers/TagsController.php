@@ -46,12 +46,10 @@ class TagsController extends Controller
      */
     public function store(TagRequest $request)
     {
-        $tag = new Tag;
-
-        $tag->name = $request->name;
-        $tag->slug = str_slug($request->name);
-
-        $tag->save();
+        Tag::create([
+            'name' => $request->name,
+            'slug' => str_slug($request->name)
+        ]);
 
         return redirect()->route('tags.index');
     }
@@ -72,13 +70,11 @@ class TagsController extends Controller
     /**
      * Show the form for editing the specified tag.
      *
-     * @param  string $slug
+     * @param Tag $tag
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug)
+    public function edit($tag)
     {
-        $tag = Tag::where('slug', $slug)->firstOrFail();
-
         return view('web.pages.tags.edit', compact('tag'));
     }
 
@@ -86,13 +82,12 @@ class TagsController extends Controller
      * Update the specified tag.
      *
      * @param TagRequest|Request $request
-     * @param  string $slug
+     * @param  Tag $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(TagRequest $request, $slug)
+    public function update(TagRequest $request, $tag)
     {
-        Tag::where('slug', $slug)->firstOrFail()
-            ->update($request->all());
+        $tag->update($request->all());
 
         return redirect()->route('tags.index');
     }
@@ -100,12 +95,13 @@ class TagsController extends Controller
     /**
      * Remove the specified tag.
      *
-     * @param  string $slug
+     * @param  Tag $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy($tag)
     {
-        Tag::where('slug', $slug)->delete();
+
+        $tag->delete();
 
         return redirect()->route('tags.index');
     }
