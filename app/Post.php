@@ -9,14 +9,7 @@ class Post extends Model
      *
      * @var array
      */
-    protected $fillable = ['author_id', 'category_id'];
-
-    /**
-     * The translated attributes
-     *
-     * @var array
-     */
-    public $translatedAttributes = ['slug', 'title', 'intro', 'body'];
+    protected $fillable = ['author_id', 'category_id', 'slug', 'title', 'body'];
 
     /**
      * User associated with the current post.
