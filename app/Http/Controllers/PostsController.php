@@ -40,7 +40,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created post.
      *
      * @param PostRequest|Request $request
      * @return \Illuminate\Http\Response
@@ -59,43 +59,41 @@ class PostsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified post.
      *
-     * @param $slug
+     * @param $post
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($post)
     {
-        $post = Post::whereTranslation('slug', $slug)->firstOrFail();
-
         return view('web.pages.posts.show', compact('post'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified post.
      *
-     * @param  int  $id
+     * @param $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($post)
+    {
+        return view('web.pages.posts.edit', compact('post'));
+    }
+
+    /**
+     * Update the specified post in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param $post
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $post)
     {
         //
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
+     * Remove the specified post from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
