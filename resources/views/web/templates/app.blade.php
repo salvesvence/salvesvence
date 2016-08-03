@@ -16,7 +16,7 @@
     </head>
 
     <body id="app-layout">
-        @include('web.organisms.navbar')
+        @include('web.organisms.navbar.back')
 
         @yield('content')
 
