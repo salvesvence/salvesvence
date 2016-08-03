@@ -64,7 +64,7 @@ class TagsController extends Controller
      */
     public function show($slug)
     {
-        $tag = Tag::whereTranslation('slug', $slug)->firstOrFail();
+        $tag = Tag::where('slug', $slug)->firstOrFail();
 
         return view('web.pages.tags.show', compact('tag'));
     }
@@ -77,7 +77,7 @@ class TagsController extends Controller
      */
     public function edit($slug)
     {
-        $tag = Tag::whereTranslation('slug', $slug)->firstOrFail();
+        $tag = Tag::where('slug', $slug)->firstOrFail();
 
         return view('web.pages.tags.edit', compact('tag'));
     }
@@ -91,8 +91,7 @@ class TagsController extends Controller
      */
     public function update(TagRequest $request, $slug)
     {
-        Tag::whereTranslation('slug', $slug)->firstOrFail()
-            ->getTranslation(app()->getLocale())
+        Tag::where('slug', $slug)->firstOrFail()
             ->update($request->all());
 
         return redirect()->route('tags.index');
@@ -106,7 +105,7 @@ class TagsController extends Controller
      */
     public function destroy($slug)
     {
-        Tag::whereTranslation('slug', $slug)->delete();
+        Tag::where('slug', $slug)->delete();
 
         return redirect()->route('tags.index');
     }
