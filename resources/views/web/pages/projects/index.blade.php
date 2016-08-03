@@ -11,7 +11,7 @@
                     <div class="panel-body">
 
                         <table class="table table-striped table-bordered">
-                            {{--@include('web.pages.posts.partials.thead')--}}
+                            @include('web.pages.projects.partials.thead')
                             {{--@include('web.pages.posts.partials.tbody')--}}
                         </table>
 
