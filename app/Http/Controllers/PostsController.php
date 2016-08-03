@@ -14,8 +14,6 @@ class PostsController extends Controller
      */
     public function __construct()
     {
-        parent::__construct();
-
         $this->middleware('auth');
     }
 
@@ -26,7 +24,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::translatedIn(app()->getLocale())->paginate(15);
+        $posts = Post::paginate(15);
 
         return view('web.pages.posts.index', compact('posts'));
     }
@@ -54,9 +52,9 @@ class PostsController extends Controller
             'category_id' => $request->category,
         ]);
 
-        $post->translateOrNew(app()->getLocale())->title = $request->title;
-        $post->translateOrNew(app()->getLocale())->slug = str_slug($request->title);
-        $post->translateOrNew(app()->getLocale())->body = $request->body;
+        $post->title = $request->title;
+        $post->slug = str_slug($request->title);
+        $post->body = $request->body;
 
         $post->save();
 

@@ -13,8 +13,6 @@ class CategoriesController extends Controller
      */
     public function __construct()
     {
-        parent::__construct();
-
         $this->middleware('auth');
     }
 
@@ -25,7 +23,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::translatedIn($this->locale)->paginate(15);
+        $categories = Category::paginate(15);
 
         return view('web.pages.categories.index', compact('categories'));
     }
@@ -50,8 +48,8 @@ class CategoriesController extends Controller
     {
         $category = new Category;
 
-        $category->translateOrNew($request->get('locale'))->name = $request->name;
-        $category->translateOrNew($request->get('locale'))->slug = str_slug($request->name);
+        $category->name = $request->name;
+        $category->slug = str_slug($request->name);
 
         $category->save();
 
@@ -95,8 +93,8 @@ class CategoriesController extends Controller
     {
         $category = Category::whereTranslation('slug', $slug)->firstOrFail();
 
-        $category->translateOrNew($request->get('locale'))->name = $request->name;
-        $category->translateOrNew($request->get('locale'))->slug = str_slug($request->name);
+        $category->name = $request->name;
+        $category->slug = str_slug($request->name);
 
         $category->save();
 
