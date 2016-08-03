@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Tag;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -24,9 +25,11 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        //
-
         parent::boot($router);
+
+        $router->bind('tag', function ($value) {
+            return Tag::where('slug', $value)->firstOrFail();
+        });
     }
 
     /**
