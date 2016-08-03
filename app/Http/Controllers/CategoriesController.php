@@ -46,12 +46,10 @@ class CategoriesController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        $category = new Category;
-
-        $category->name = $request->name;
-        $category->slug = str_slug($request->name);
-
-        $category->save();
+        Category::create([
+            'name' => $request->name,
+            'slug' => str_slug($request->name)
+        ]);
 
         return redirect()->route('categories.index');
     }
@@ -59,26 +57,22 @@ class CategoriesController extends Controller
     /**
      * Display the specified category.
      *
-     * @param $slug
+     * @param $category
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($category)
     {
-        $category = Category::whereTranslation('slug', $slug)->firstOrFail();
-
         return view('web.pages.categories.show', compact('category'));
     }
 
     /**
      * Show the form for editing the specified category.
      *
-     * @param $slug
+     * @param $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug)
+    public function edit($category)
     {
-        $category = Category::whereTranslation('slug', $slug)->firstOrFail();
-
         return view('web.pages.categories.edit', compact('category'));
     }
 
@@ -86,17 +80,15 @@ class CategoriesController extends Controller
      * Update the specified category.
      *
      * @param CategoryRequest $request
-     * @param $slug
+     * @param $category
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request, $slug)
+    public function update(CategoryRequest $request, $category)
     {
-        $category = Category::whereTranslation('slug', $slug)->firstOrFail();
-
-        $category->name = $request->name;
-        $category->slug = str_slug($request->name);
-
-        $category->save();
+        $category->update([
+            'name' => $request->name,
+            'slug' => str_slug($request->name)
+        ]);
 
         return redirect()->route('categories.index');
     }
@@ -104,12 +96,12 @@ class CategoriesController extends Controller
     /**
      * Remove the specified category.
      *
-     * @param $slug
+     * @param $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy($category)
     {
-        Category::whereTranslation('slug', $slug)->delete();
+        $category->delete();
 
         return redirect()->route('categories.index');
     }
