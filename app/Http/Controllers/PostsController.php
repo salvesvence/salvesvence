@@ -99,11 +99,13 @@ class PostsController extends Controller
     /**
      * Remove the specified post from storage.
      *
-     * @param  int  $id
+     * @param  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('posts.index');
     }
 }
