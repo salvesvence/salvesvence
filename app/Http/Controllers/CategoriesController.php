@@ -46,10 +46,7 @@ class CategoriesController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        Category::create([
-            'name' => $request->name,
-            'slug' => str_slug($request->name)
-        ]);
+        Category::create($request->all());
 
         return redirect()->route('categories.index');
     }
@@ -85,10 +82,7 @@ class CategoriesController extends Controller
      */
     public function update(CategoryRequest $request, $category)
     {
-        $category->update([
-            'name' => $request->name,
-            'slug' => str_slug($request->name)
-        ]);
+        $category->update($request->all());
 
         return redirect()->route('categories.index');
     }
