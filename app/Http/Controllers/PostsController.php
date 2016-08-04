@@ -47,12 +47,6 @@ class PostsController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $request->merge([
-            'author_id' => Auth::user()->id,
-            'category_id' => $request->category_id,
-            'slug' => str_slug($request->title)
-        ]);
-
         Post::create($request->all());
 
         return redirect()->route('posts.index');
@@ -89,8 +83,6 @@ class PostsController extends Controller
      */
     public function update(PostRequest $request, $post)
     {
-        $request->merge(['slug' => str_slug($request->title)]);
-
         $post->update($request->all());
 
         return redirect()->route('posts.index');
