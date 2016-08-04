@@ -80,13 +80,17 @@ class ProjectsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param ProjectRequest|Request $request
+     * @param  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProjectRequest $request, $project)
     {
-        //
+        $request->merge(['slug' => str_slug($request->name)]);
+
+        $project->update($request->all());
+
+        return redirect()->route('projects.index');
     }
 
     /**
