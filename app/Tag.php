@@ -12,6 +12,18 @@ class Tag extends Model
     protected $fillable = ['name', 'slug'];
 
     /**
+     * Create the slug field when we save a new tag register.
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::saving(function($tag) {
+            $tag->slug = str_slug($tag->name);
+        });
+    }
+
+    /**
      * Posts associated with the current tag.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
