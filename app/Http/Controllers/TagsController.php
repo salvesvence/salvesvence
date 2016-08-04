@@ -54,13 +54,11 @@ class TagsController extends Controller
     /**
      * Display the specified tag.
      *
-     * @param  string $slug
+     * @param  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($tag)
     {
-        $tag = Tag::where('slug', $slug)->firstOrFail();
-
         return view('web.pages.tags.show', compact('tag'));
     }
 
