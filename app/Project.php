@@ -11,5 +11,5 @@ class Project extends Model
      *
      * @var array
      */
-    protected $fillable = ['slug', 'title', 'description'];
+    protected $fillable = ['slug', 'name', 'description'];
 }
