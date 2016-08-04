@@ -56,6 +56,7 @@ Route::resource('categories', 'CategoriesController', ['only' =>
 ]);
 
 Route::put('categories/{category}',        ['as' => 'categories.update',    'uses' => 'CategoriesController@update']);
+Route::get('categories/{category}',        ['as' => 'categories.show',      'uses' => 'CategoriesController@show']);
 Route::get('categories/{category}/edit',   ['as' => 'categories.edit',      'uses' => 'CategoriesController@edit']);
 Route::get('categories/{category}/delete', ['as' => 'categories.destroy',   'uses' => 'CategoriesController@destroy']);
 
