@@ -10,7 +10,8 @@
                     <div class="panel-body">
                         <form id="store-project" action="{{ route('projects.update', $project->slug) }}" method="post">
 
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            {{ csrf_field() }}
+                            {{ method_field('PUT') }}
 
                             <div class="form-group col-sm-12">
                                 @include('web.atoms.inputs.name', ['name' => $project->name])
