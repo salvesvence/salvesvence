@@ -5,7 +5,7 @@
     <tr>
 
         <td>{{ $project->id }}</td>
-        <td>{{ $project->title }}</td>
+        <td>{{ $project->name }}</td>
         <td>
             @include('web.atoms.links.edit', ['route' => route('projects.edit', $project->slug)])
         </td>
