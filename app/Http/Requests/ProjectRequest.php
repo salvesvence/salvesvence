@@ -24,7 +24,7 @@ class ProjectRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required',
+            'name' => 'required',
             'description' => 'required'
         ];
     }
