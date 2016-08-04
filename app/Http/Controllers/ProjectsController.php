@@ -69,12 +69,12 @@ class ProjectsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($project)
     {
-        //
+        return view('web.pages.projects.edit', compact('project'));
     }
 
     /**
