@@ -108,11 +108,10 @@ Route::get('posts/{post}/delete', ['as' => 'posts.destroy',    'uses' => 'PostsC
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::resource('projects', 'ProjectsController', ['except' =>
-    ['destroy']
+Route::resource('projects', 'ProjectsController', ['only' =>
+    ['index', 'create', 'store']
 ]);
 
-Route::get('projects/{slug}/delete', [
-    'as' => 'projects.destroy',
-    'uses' => 'ProjectsController@destroy'
-]);
+Route::put('projects/{project}',        ['as' => 'projects.update',     'uses' => 'ProjectsController@update']);
+Route::get('projects/{project}/edit',   ['as' => 'projects.edit',       'uses' => 'ProjectsController@edit']);
+Route::get('projects/{project}/delete', ['as' => 'projects.destroy',    'uses' => 'ProjectsController@destroy']);
