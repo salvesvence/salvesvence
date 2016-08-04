@@ -46,10 +46,7 @@ class TagsController extends Controller
      */
     public function store(TagRequest $request)
     {
-        Tag::create([
-            'name' => $request->name,
-            'slug' => str_slug($request->name)
-        ]);
+        Tag::create($request->all());
 
         return redirect()->route('tags.index');
     }
