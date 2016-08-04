@@ -12,4 +12,16 @@ class Project extends Model
      * @var array
      */
     protected $fillable = ['slug', 'name', 'description'];
+
+    /**
+     * Create the slug field when we save a new project register.
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::saving(function($project) {
+            $project->slug = str_slug($project->name);
+        });
+    }
 }
