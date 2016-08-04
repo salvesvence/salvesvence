@@ -19,7 +19,7 @@ class ProjectsController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the project.
      *
      * @return \Illuminate\Http\Response
      */
@@ -31,7 +31,7 @@ class ProjectsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new project.
      *
      * @return \Illuminate\Http\Response
      */
@@ -41,15 +41,13 @@ class ProjectsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created project in storage.
      *
      * @param ProjectRequest|Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(ProjectRequest $request)
     {
-        $request->merge(['slug' => str_slug($request->name)]);
-
         Project::create($request->all());
 
         return redirect()->route('projects.index');
@@ -67,7 +65,7 @@ class ProjectsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified project.
      *
      * @param  $project
      * @return \Illuminate\Http\Response
@@ -78,7 +76,7 @@ class ProjectsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified project in storage.
      *
      * @param ProjectRequest|Request $request
      * @param  $project
@@ -86,21 +84,21 @@ class ProjectsController extends Controller
      */
     public function update(ProjectRequest $request, $project)
     {
-        $request->merge(['slug' => str_slug($request->name)]);
-
         $project->update($request->all());
 
         return redirect()->route('projects.index');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified project from storage.
      *
-     * @param  int  $id
+     * @param  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('projects.index');
     }
 }
