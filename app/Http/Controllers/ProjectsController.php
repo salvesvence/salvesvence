@@ -48,7 +48,7 @@ class ProjectsController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-        $request->merge(['slug' => str_slug($request->title)]);
+        $request->merge(['slug' => str_slug($request->name)]);
 
         Project::create($request->all());
 
