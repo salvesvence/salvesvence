@@ -1,6 +1,7 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
@@ -10,6 +11,22 @@ class Post extends Model
      * @var array
      */
     protected $fillable = ['author_id', 'category_id', 'slug', 'title', 'body'];
+
+    /**
+     * Create the slug field when we save a new post register.
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($post) {
+            $post->author_id = Auth::user()->id;
+        });
+
+        static::saving(function($post) {
+            $post->slug = str_slug($post->name);
+        });
+    }
 
     /**
      * User associated with the current post.
