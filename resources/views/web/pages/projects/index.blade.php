@@ -12,12 +12,12 @@
 
                         <table class="table table-striped table-bordered">
                             @include('web.pages.projects.partials.thead')
-                            {{--@include('web.pages.posts.partials.tbody')--}}
+                            @include('web.pages.projects.partials.tbody')
                         </table>
 
                         <div class="row">
                             <div class="col-sm-12">
-{{--                                @include('web.atoms.links.create', ['route' => route('posts.create')])--}}
+                                @include('web.atoms.links.create', ['route' => route('projects.create')])
                             </div>
                         </div>
 
