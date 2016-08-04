@@ -75,6 +75,7 @@ Route::resource('tags', 'TagsController', ['only' =>
 ]);
 
 Route::put('tags/{tag}',        ['as' => 'tags.update',     'uses' => 'TagsController@update']);
+Route::get('tags/{tag}',        ['as' => 'tags.show',       'uses' => 'TagsController@show']);
 Route::get('tags/{tag}/edit',   ['as' => 'tags.edit',       'uses' => 'TagsController@edit']);
 Route::get('tags/{tag}/delete', ['as' => 'tags.destroy',    'uses' => 'TagsController@destroy']);
 
