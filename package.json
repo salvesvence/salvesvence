@@ -5,9 +5,10 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
+    "bootstrap-sass": "^3.0.0",
+    "ckeditor": "^4.5.10",
     "gulp": "^3.9.1",
     "jquery": "^3.1.0",
-    "bootstrap-sass": "^3.0.0",
     "laravel-elixir": "^5.0.0"
   }
 }
