@@ -24,7 +24,7 @@ class Post extends Model
         });
 
         static::saving(function($post) {
-            $post->slug = str_slug($post->name);
+            $post->slug = str_slug($post->title);
         });
     }
 
