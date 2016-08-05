@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
         <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
     </head>
 
     <body id="app-layout">

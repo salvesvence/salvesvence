@@ -11,7 +11,6 @@ elixir(function(mix) {
         .copy(bootstrapPath + '/fonts', 'public/fonts')
         .copy(bootstrapPath + '/javascripts/bootstrap.min.js', 'resources/assets/js/bootstrap')
         .copy('node_modules/jquery/dist/jquery.min.js', 'resources/assets/js/jquery')
-        .copy('node_modules/ckeditor/ckeditor.js', 'public/js')
 
         .scripts([
             'jquery/jquery.min.js',
