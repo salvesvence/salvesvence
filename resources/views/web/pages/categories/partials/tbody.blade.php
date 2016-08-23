@@ -1,6 +1,6 @@
-<tbody id="categories">
+<tbody>
 
-    <tr v-for="category in categories">
+    <tr v-for="category in list">
 
         <td>@{{ category.id }}</td>
         <td>@{{ category.name }}</td>

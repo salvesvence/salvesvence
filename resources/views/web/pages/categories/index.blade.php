@@ -7,12 +7,18 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">Categorías:</div>
-                    <div class="panel-body">
+                    <div class="panel-body" id="categories">
 
-                        <table class="table table-striped table-bordered">
-                            @include('web.pages.categories.partials.thead')
-                            @include('web.pages.categories.partials.tbody')
-                        </table>
+                        <categories list="{{ json_encode($categories) }}"></categories>
+
+                        <template id="categories-template">
+
+                            <table class="table table-striped table-bordered">
+                                @include('web.pages.categories.partials.thead')
+                                @include('web.pages.categories.partials.tbody')
+                            </table>
+
+                        </template>
 
                         <div class="row">
                             <div class="col-sm-12">

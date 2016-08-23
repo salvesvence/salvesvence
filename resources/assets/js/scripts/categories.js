@@ -1,15 +1,13 @@
-new Vue({
-   el: '#categories',
+Vue.component('categories', {
+   template: '#categories-template',
 
-   ready: function () {
-      this.fetchCategories();
-   },
+   props: ['list'],
 
-   methods: {
-      fetchCategories: function () {
-         this.$http.get('api/categories').then((categories) => {
-               this.$set('categories', categories.json().data);
-         });
-      }
+   created() {
+      this.list = JSON.parse(this.list).data;
    }
+});
+
+new Vue({
+   el: '#categories'
 });
