@@ -23,5 +23,9 @@ elixir(function(mix) {
             'bootstrap/bootstrap.min.js'
         ], 'public/js/app.js')
 
+        .browserify([
+            'scripts/categories.js'
+        ], 'public/js/scripts.js')
+
         .version(['css/app.css', 'js/app.js']);
 });
