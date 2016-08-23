@@ -37,7 +37,6 @@
                                         </td>
                                     </tr>
                                 </tbody>
-
                             </table>
                         </template>
 
@@ -46,7 +45,6 @@
                                 @include('web.atoms.links.create', ['route' => route('categories.create')])
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
