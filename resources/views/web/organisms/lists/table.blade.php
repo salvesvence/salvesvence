@@ -3,12 +3,12 @@
 <template id="list-table">
     <table class="table table-striped table-bordered">
         <thead>
-        <tr>
-            <td>#</td>
-            <td>Nombre</td>
-            <td class="text-center">Editar</td>
-            <td class="text-center">Borrar</td>
-        </tr>
+            <tr>
+                <td>#</td>
+                <td>Nombre</td>
+                <td class="text-center">Editar</td>
+                <td class="text-center">Borrar</td>
+            </tr>
         </thead>
 
         <tbody>

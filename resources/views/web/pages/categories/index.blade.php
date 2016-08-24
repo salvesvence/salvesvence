@@ -12,7 +12,6 @@
                             'route' => 'categories',
                             'list' => json_encode($categories)
                         ])
-
                         <div class="row">
                             <div class="col-sm-12">
                                 @include('web.atoms.links.create', ['route' => route('categories.create')])
