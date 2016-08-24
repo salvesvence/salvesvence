@@ -1,5 +1,5 @@
-Vue.component('categories', {
-   template: '#categories-template',
+Vue.component('list-table', {
+   template: '#list-table',
 
    props: ['list'],
 
@@ -9,5 +9,5 @@ Vue.component('categories', {
 });
 
 new Vue({
-   el: '#categories'
+   el: 'body'
 });
