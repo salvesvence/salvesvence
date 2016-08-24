@@ -24,7 +24,7 @@ elixir(function(mix) {
         ], 'public/js/app.js')
 
         .browserify([
-            'scripts/categories.js'
+            'scripts/list-table.js'
         ], 'public/js/scripts.js')
 
         .version(['css/app.css', 'js/app.js']);
