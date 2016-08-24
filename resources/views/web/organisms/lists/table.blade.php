@@ -12,7 +12,7 @@
         </thead>
 
         <tbody>
-        <tr v-for="item in list">
+        <tr v-for="item in list" v-show="isVisible">
             <td>@{{ item.id }}</td>
             <td v-if="item.name">@{{ item.name }}</td>
             <td v-if="item.title">@{{ item.title }}</td>
@@ -22,8 +22,13 @@
                 </a>
             </td>
             <td>
-                <a href="{{ $route }}/@{{ item.slug }}/delete" class="btn-block text-center">
-                    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                <a href="#"
+                   id="button-delete"
+                   @click="delete()"
+                   class="btn-block text-center"
+                   data-url="{{ $route }}/@{{ item.slug }}/delete"
+                   >
+                   <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                 </a>
             </td>
         </tr>
