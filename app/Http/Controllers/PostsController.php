@@ -98,6 +98,8 @@ class PostsController extends Controller
     {
         $post->delete();
 
-        return redirect()->route('posts.index');
+        return response()->json([
+            'message' => 'El post ha sido borrado correctamente'
+        ]);
     }
 }
