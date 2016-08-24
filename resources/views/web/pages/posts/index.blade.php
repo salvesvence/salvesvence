@@ -7,24 +7,18 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">Categorías:</div>
-
                     <div class="panel-body">
-
-                        <table class="table table-striped table-bordered">
-                            @include('web.pages.posts.partials.thead')
-                            @include('web.pages.posts.partials.tbody')
-                        </table>
-
+                        @include('web.organisms.lists.table', [
+                            'route' => 'posts',
+                            'list' => json_encode($posts)
+                        ])
                         <div class="row">
                             <div class="col-sm-12">
                                 @include('web.atoms.links.create', ['route' => route('posts.create')])
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>

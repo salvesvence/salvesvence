@@ -14,7 +14,8 @@
         <tbody>
         <tr v-for="item in list">
             <td>@{{ item.id }}</td>
-            <td>@{{ item.name }}</td>
+            <td v-if="item.name">@{{ item.name }}</td>
+            <td v-if="item.title">@{{ item.title }}</td>
             <td>
                 <a href="{{ $route }}/@{{ item.slug }}/edit" class="btn-block text-center">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
