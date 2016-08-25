@@ -97,6 +97,8 @@ class CategoriesController extends Controller
     {
         $category->delete();
 
-        return redirect()->route('categories.index');
+        return response()->json([
+            'message' => 'La categoría seleccionada ha sido borrada correctamente.'
+        ]);
     }
 }
