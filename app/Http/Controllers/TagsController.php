@@ -97,6 +97,8 @@ class TagsController extends Controller
     {
         $tag->delete();
 
-        return redirect()->route('tags.index');
+        return response()->json([
+            'message' => 'El tag seleccionado ha sido borrado correctamente.'
+        ]);
     }
 }
