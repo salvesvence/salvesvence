@@ -2,19 +2,24 @@ var elixir = require('laravel-elixir');
 
 elixir.config.sourcemaps = false;
 
+var inProduction = elixir.config.production;
+
 elixir(function(mix) {
 
     var bootstrapPath = 'node_modules/bootstrap-sass/assets';
 
-    mix.sass('app.scss', 'resources/assets/css/app.css')
+    if (! inProduction) {
 
-        .copy(bootstrapPath + '/fonts', 'public/fonts')
-        .copy(bootstrapPath + '/javascripts/bootstrap.min.js', 'resources/assets/js/bootstrap')
-        .copy('node_modules/jquery/dist/jquery.min.js', 'resources/assets/js/jquery')
-        .copy([
-            'node_modules/vue/dist/vue.min.js',
-            'node_modules/vue-resource/dist/vue-resource.min.js'
-        ], 'resources/assets/js/vue')
+        mix.copy(bootstrapPath + '/fonts', 'public/fonts')
+            .copy(bootstrapPath + '/javascripts/bootstrap.min.js', 'resources/assets/js/bootstrap')
+            .copy('node_modules/jquery/dist/jquery.min.js', 'resources/assets/js/jquery')
+            .copy([
+                'node_modules/vue/dist/vue.min.js',
+                'node_modules/vue-resource/dist/vue-resource.min.js'
+            ], 'resources/assets/js/vue')
+    }
+
+    mix.sass('app.scss', 'resources/assets/css/app.css')
 
         .styles(['app.css', 'animate.css'], 'public/css/app.min.css')
 
