@@ -18,8 +18,19 @@ Vue.component('list-table', {
              url = $elem.find('a#button-delete').data('url');
 
          this.$http.get('/' + url).then((response) => {
-            console.log(response.data.message);
+            this.showModal(response.data.message);
          });
+      },
+
+      showModal: function(message) {
+         var modal = $('#delete-modal');
+
+         setTimeout(function() {
+            modal.find('.modal-body')
+                .append('<p>' + message +'</p>');
+
+            modal.modal('show');
+         }, 400);
       }
    },
 
