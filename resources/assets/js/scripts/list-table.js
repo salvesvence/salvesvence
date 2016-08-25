@@ -1,3 +1,7 @@
+Vue.transition('fade-out', {
+   leaveClass: 'fadeOut'
+});
+
 Vue.component('list-table', {
    template: '#list-table',
 

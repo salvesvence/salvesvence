@@ -12,26 +12,26 @@
         </thead>
 
         <tbody>
-        <tr v-for="item in list" v-show="isVisible">
-            <td>@{{ item.id }}</td>
-            <td v-if="item.name">@{{ item.name }}</td>
-            <td v-if="item.title">@{{ item.title }}</td>
-            <td>
-                <a href="{{ $route }}/@{{ item.slug }}/edit" class="btn-block text-center">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                </a>
-            </td>
-            <td>
-                <a href="#"
-                   id="button-delete"
-                   @click="delete()"
-                   class="btn-block text-center"
-                   data-url="{{ $route }}/@{{ item.slug }}/delete"
-                   >
-                   <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-                </a>
-            </td>
-        </tr>
+            <tr v-for="item in list" v-show="isVisible" transition="fade-out" class="animated">
+                <td>@{{ item.id }}</td>
+                <td v-if="item.name">@{{ item.name }}</td>
+                <td v-if="item.title">@{{ item.title }}</td>
+                <td>
+                    <a href="{{ $route }}/@{{ item.slug }}/edit" class="btn-block text-center">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#"
+                       id="button-delete"
+                       @click="delete()"
+                       class="btn-block text-center"
+                       data-url="{{ $route }}/@{{ item.slug }}/delete"
+                    >
+                       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
         </tbody>
     </table>
 </template>

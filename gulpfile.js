@@ -6,7 +6,7 @@ elixir(function(mix) {
 
     var bootstrapPath = 'node_modules/bootstrap-sass/assets';
 
-    mix.sass('app.scss')
+    mix.sass('app.scss', 'resources/assets/css/app.css')
 
         .copy(bootstrapPath + '/fonts', 'public/fonts')
         .copy(bootstrapPath + '/javascripts/bootstrap.min.js', 'resources/assets/js/bootstrap')
@@ -16,16 +16,18 @@ elixir(function(mix) {
             'node_modules/vue-resource/dist/vue-resource.min.js'
         ], 'resources/assets/js/vue')
 
+        .styles(['app.css', 'animate.css'], 'public/css/app.min.css')
+
         .scripts([
             'jquery/jquery.min.js',
             'vue/vue.min.js',
             'vue/vue-resource.min.js',
             'bootstrap/bootstrap.min.js'
-        ], 'public/js/app.js')
+        ], 'public/js/app.min.js')
 
         .browserify([
             'scripts/list-table.js'
         ], 'public/js/scripts.js')
 
-        .version(['css/app.css', 'js/app.js']);
+        .version(['css/app.min.css', 'js/app.min.js']);
 });
