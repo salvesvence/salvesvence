@@ -7,15 +7,16 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">Crear Post:</div>
-
                     <div class="panel-body">
                         <form id="store-category" action="{{ route('posts.store') }}" method="post">
-
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="category_id" value="{{ \App\Category::first()->id }}">
 
-                            <div class="form-group col-sm-12">
+                            <div class="form-group col-sm-12 col-md-6">
                                 @include('web.atoms.inputs.title')
+                            </div>
+
+                            <div class="form-group col-sm-12 col-md-6">
+                                @include('web.atoms.selects.category')
                             </div>
 
                             <div class="form-group col-sm-12">
@@ -23,10 +24,8 @@
                             </div>
 
                             @include('web.molecules.forms.footer')
-
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>
