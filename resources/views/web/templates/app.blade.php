@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
         <link href="{{ elixir('css/app.min.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
         @if(Auth::check())
             <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
