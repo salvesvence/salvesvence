@@ -1,6 +1,7 @@
-<?php namespace App\Providers;
+<?php
 
-use App\Category;
+namespace App\Providers;
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -12,9 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('web.atoms.selects.category', function($view) {
-            $view->with('categories', Category::all());
-        });
+        //
     }
 
     /**
