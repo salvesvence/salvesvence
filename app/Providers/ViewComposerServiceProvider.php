@@ -14,9 +14,7 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('web.atoms.selects.category', function($view) {
-            $view->with('categories', Category::all());
-        });
+        $this->composeCategory();
     }
 
     /**
@@ -27,5 +25,13 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+
+    /**
+     * Load all compose categories variables
+     */
+    private function composeCategory()
+    {
+        view()->composer('web.atoms.selects.category', 'App\Http\Composers\CategoryComposer@all');
     }
 }
