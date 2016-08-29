@@ -1,21 +1,12 @@
 <div class="title">Imágenes</div>
 
 <div id="actions" class="row">
-
     <div class="col-lg-7">
         <span style="margin: 10px 0" class="btn btn-success fileinput-button dz-clickable">
             <i class="glyphicon glyphicon-plus"></i>
             <span>Añadir</span>
         </span>
     </div>
-
-    <div class="col-lg-5">
-        <span class="fileupload-process"></span>
-        <div id="total-progress" style="opacity: 0;" class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-            <div class="progress-bar progress-bar-success" data-dz-uploadprogress=""></div>
-        </div>
-    </div>
-
 </div>
 
 <div class="table table-striped files" id="previews">
@@ -34,9 +25,6 @@
         </div>
         <div class="pull-left col-xs-12 col-sm-7 col-lg-4" style="padding: 10px">
             <p class="size" data-dz-size></p>
-            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <div class="progress-bar progress-bar-success" data-dz-uploadprogress></div>
-            </div>
         </div>
         <div class="pull-right col-xs-12 col-lg-4">
             <button style="margin: 10px 0" data-dz-remove class="btn btn-danger pull-right delete">
