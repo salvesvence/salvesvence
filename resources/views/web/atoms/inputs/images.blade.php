@@ -7,14 +7,6 @@
             <i class="glyphicon glyphicon-plus"></i>
             <span>Añadir</span>
         </span>
-        <button style="margin: 10px 0" type="submit" class="btn btn-primary start">
-            <i class="glyphicon glyphicon-upload"></i>
-            <span>Subir</span>
-        </button>
-        <button style="margin: 10px 0" type="reset" class="btn btn-warning cancel">
-            <i class="glyphicon glyphicon-ban-circle"></i>
-            <span>Cancelar</span>
-        </button>
     </div>
 
     <div class="col-lg-5">
@@ -29,6 +21,9 @@
 <div class="table table-striped files" id="previews">
 
     <div id="template" class="file-row row">
+        <div class="col-lg-12">
+            <hr>
+        </div>
         <div class="pull-left col-xs-12 col-sm-2 col-lg-2">
             <span class="preview"></span>
             <img src="" data-dz-thumbnail class="thumbnail" style="margin: 0">
@@ -44,21 +39,10 @@
             </div>
         </div>
         <div class="pull-right col-xs-12 col-lg-4">
-            <button style="margin: 10px 0" class="btn btn-primary start">
-                <i class="glyphicon glyphicon-upload"></i>
-                <span>Subir</span>
-            </button>
-            <button style="margin: 10px 0" data-dz-remove class="btn btn-warning cancel">
-                <i class="glyphicon glyphicon-ban-circle"></i>
-                <span>Cancelar</span>
-            </button>
-            <button style="margin: 10px 0" data-dz-remove class="btn btn-danger delete">
+            <button style="margin: 10px 0" data-dz-remove class="btn btn-danger pull-right delete">
                 <i class="glyphicon glyphicon-trash"></i>
                 <span>Borrar</span>
             </button>
-        </div>
-        <div class="col-lg-12">
-            <hr>
         </div>
     </div>
 

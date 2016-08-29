@@ -64,8 +64,10 @@
         });
 
         myDropzone.on("addedfile", function(file) {
-            // Hookup the start button
-            file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file); };
+
+            $("input.save").click(function() {
+                myDropzone.enqueueFile(file);
+            });
         });
 
         // Update the total progress bar
@@ -85,14 +87,6 @@
             document.querySelector("#total-progress").style.opacity = "0";
         });
 
-        // Setup the buttons for all transfers
-        // The "add files" button doesn't need to be setup because the config
-        // `clickable` has already been specified.
-        document.querySelector("#actions .start").onclick = function() {
-            myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED));
-        };
-        document.querySelector("#actions .cancel").onclick = function() {
-            myDropzone.removeAllFiles(true);
-        };
     </script>
+
 @endsection
