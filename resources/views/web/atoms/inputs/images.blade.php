@@ -17,8 +17,6 @@
         <div class="pull-left col-xs-12 col-sm-3 col-lg-2" style="padding: 10px">
             <p class="name" data-dz-name></p>
             <strong class="error text-danger" data-dz-errormessage></strong>
-        </div>
-        <div class="pull-left col-xs-12 col-sm-7 col-lg-4" style="padding: 10px">
             <p class="size" data-dz-size></p>
         </div>
         <div class="pull-right col-xs-12 col-lg-4">

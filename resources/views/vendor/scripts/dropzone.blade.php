@@ -8,6 +8,7 @@
     var previewTemplate = previewNode.parentNode.innerHTML;
     previewNode.parentNode.removeChild(previewNode);
 
+
     $('.sav-dropzone').dropzone({
         parallelUploads: 5,
         autoProcessQueue: false,
@@ -29,7 +30,7 @@
                 $this.processQueue();
 
                 $this.on("sendingmultiple", function(){
-                    console.log('enviando...')
+                    console.log('enviando...');
                 });
 
                 $this.on("successmultiple", function(files, response) {
@@ -37,9 +38,10 @@
                 });
 
                 $this.on("errormultiple", function(files, response) {
-                    console.log('mierda');
+                    console.log(response);
                 });
             });
         }
     });
+
 </script>

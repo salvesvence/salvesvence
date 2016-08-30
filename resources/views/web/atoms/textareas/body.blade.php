@@ -1,9 +1,14 @@
 <label for="body">Cuerpo</label>
-<textarea class="form-control" id="body" name="body">{{ isset($body) ? $body : '' }}</textarea>
+<textarea class="form-control" id="body" name="body"></textarea>
 
 <script>
-    CKEDITOR.replace('body', {
+    var editor = CKEDITOR.replace('body', {
         language: 'es',
         scayt_sLang: 'es_ES'
     });
+
+    editor.on( 'change', function( evt ) {
+        document.getElementById('body').value = evt.editor.getData();
+    });
+
 </script>
