@@ -19,10 +19,10 @@
         clickable: ".file-button",
         init: function() {
 
-            var submit = document.querySelector('#save'),
+            var submit = $('#save'),
                 $this = this;
 
-            submit.addEventListener('click', function(e) {
+            submit.click(function(e) {
                 e.preventDefault();
                 e.stopPropagation();
 
