@@ -47,7 +47,27 @@ class PostsController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $post = Post::create($request->except('file'));
+        $this->images(
+            $request, Post::create($request->except('file'))
+        );
+
+        if($request->ajax()) {
+            return response()->json([
+                'message' => 'El artículo ha sido creado correctamente.'
+            ]);
+        }
+
+        return redirect()->route('posts.index');
+    }
+
+    /**
+     * Store the post uploads.
+     *
+     * @param $request
+     * @param $post
+     */
+    private function images($request, $post)
+    {
         $dir = public_path() . '/uploads/posts/' . $post->id . '/';
 
         if($request->hasFile('file')) {
@@ -58,14 +78,6 @@ class PostsController extends Controller
                 $file->move($dir, $fileName);
             }
         }
-
-        if($request->ajax()) {
-            return response()->json([
-                'message' => 'El artículo ha sido creado correctamente.'
-            ]);
-        }
-
-        return redirect()->route('posts.index');
     }
 
     /**
