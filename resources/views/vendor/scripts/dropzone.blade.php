@@ -2,12 +2,21 @@
 
 <script>
 
+    var previewNode = document.querySelector('#dz-preview-template');
+    previewNode.id = "";
+
+    var previewTemplate = previewNode.parentNode.innerHTML;
+    previewNode.parentNode.removeChild(previewNode);
+
     $('.sav-dropzone').dropzone({
         parallelUploads: 5,
         autoProcessQueue: false,
         uploadMultiple: true,
-        maxFilesize: 10,
-        maxFiles: 2,
+        maxFilesize: 1,
+        maxFiles: 5,
+        previewTemplate: previewTemplate,
+        previewsContainer: "#preview",
+        clickable: ".file-button",
         init: function() {
 
             var submit = document.querySelector('#save'),

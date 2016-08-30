@@ -9,7 +9,7 @@
                     <div class="panel-heading">Crear Post:</div>
                     <div class="panel-body">
                         <form id="store-category" action="{{ route('posts.store') }}" class="sav-dropzone" method="post" style="height: auto;overflow: hidden;">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            {{ csrf_field() }}
 
                             <div class="form-group col-sm-12 col-md-6">
                                 @include('web.atoms.inputs.title')
@@ -20,14 +20,10 @@
                             <div class="form-group col-sm-12">
                                 @include('web.atoms.textareas.body')
                             </div>
-
-                            <div class="col-sm-12"><hr></div>
                             <div class="col-sm-12">
-                                {{--@include('web.atoms.inputs.images')--}}
-                                <div class="fallback">
-                                    <input name="file" type="file" multiple>
-                                </div>
+                                @include('web.atoms.inputs.images')
                             </div>
+
                             @include('web.molecules.forms.footer')
                         </form>
                     </div>

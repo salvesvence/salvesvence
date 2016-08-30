@@ -1,20 +1,15 @@
-<div class="title">Imágenes</div>
+<div class="title" style="margin-bottom: 15px">Imágenes</div>
 
-<div id="actions" class="row">
-    <div class="col-lg-7">
-        <span style="margin: 10px 0" class="btn btn-success fileinput-button dz-clickable">
-            <i class="glyphicon glyphicon-plus"></i>
-            <span>Añadir</span>
-        </span>
-    </div>
-</div>
+<a class="file-button btn btn-success">
+    <i class="glyphicon glyphicon-plus"></i>
+    <span>Añadir Imágenes</span>
+</a>
 
-<div class="table table-striped files" id="previews">
+<hr>
 
-    <div id="template" class="file-row row">
-        <div class="col-lg-12">
-            <hr>
-        </div>
+<div class="table table-striped files" id="preview">
+
+    <div id="dz-preview-template" class="file-row row">
         <div class="pull-left col-xs-12 col-sm-2 col-lg-2">
             <span class="preview"></span>
             <img src="" data-dz-thumbnail class="thumbnail" style="margin: 0">
@@ -32,7 +27,11 @@
                 <span>Borrar</span>
             </button>
         </div>
+        <div class="col-sm-12"><hr></div>
     </div>
 
 </div>
 
+<div class="fallback">
+    <input name="file" type="file" multiple>
+</div>
