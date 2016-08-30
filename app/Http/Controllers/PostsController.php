@@ -45,7 +45,7 @@ class PostsController extends Controller
      * @param PostRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
+    public function store(Request $request)
     {
         $this->images(
             $request, Post::create($request->except('file'))

@@ -8,7 +8,6 @@
     var previewTemplate = previewNode.parentNode.innerHTML;
     previewNode.parentNode.removeChild(previewNode);
 
-
     $('.sav-dropzone').dropzone({
         parallelUploads: 5,
         autoProcessQueue: false,
