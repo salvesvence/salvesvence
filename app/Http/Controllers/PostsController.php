@@ -47,7 +47,23 @@ class PostsController extends Controller
      */
     public function store(PostRequest $request)
     {
-        Post::create($request->all());
+        $post = Post::create($request->except('file'));
+        $dir = public_path() . '/uploads/posts/' . $post->id . '/';
+
+        if($request->hasFile('file')) {
+            $files = $request->file('file');
+
+            foreach($files as $file) {
+                $fileName = $file->getClientOriginalName();
+                $file->move($dir, $fileName);
+            }
+        }
+
+        if($request->ajax()) {
+            return response()->json([
+                'message' => 'El artículo ha sido creado correctamente.'
+            ]);
+        }
 
         return redirect()->route('posts.index');
     }

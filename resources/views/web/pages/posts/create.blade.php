@@ -8,31 +8,28 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Crear Post:</div>
                     <div class="panel-body">
-                        <form id="store-category" action="{{ route('posts.store') }}" method="post" style="height: auto;overflow: hidden;">
+                        <form id="store-category" action="{{ route('posts.store') }}" class="sav-dropzone" method="post" style="height: auto;overflow: hidden;">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group col-sm-12 col-md-6">
                                 @include('web.atoms.inputs.title')
                             </div>
-
                             <div class="form-group col-sm-12 col-md-6">
                                 @include('web.atoms.selects.category')
                             </div>
-
                             <div class="form-group col-sm-12">
                                 @include('web.atoms.textareas.body')
                             </div>
 
+                            <div class="col-sm-12"><hr></div>
+                            <div class="col-sm-12">
+                                {{--@include('web.atoms.inputs.images')--}}
+                                <div class="fallback">
+                                    <input name="file" type="file" multiple>
+                                </div>
+                            </div>
                             @include('web.molecules.forms.footer')
                         </form>
-
-                        <div class="col-sm-12">
-                            <hr>
-                        </div>
-
-                        <div class="col-sm-12">
-                            @include('web.atoms.inputs.images')
-                        </div>
                     </div>
                 </div>
             </div>
@@ -42,7 +39,5 @@
 @endsection
 
 @section('dropzone')
-
-    @include('vendor.scripts.dropzone', ['url' => route('posts.store')])
-
+    @include('vendor.scripts.dropzone')
 @endsection
