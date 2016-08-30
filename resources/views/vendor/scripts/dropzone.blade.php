@@ -2,26 +2,35 @@
 
 <script>
 
-    var previewNode = $("#template"),
-        previewTemplate = previewNode.parent().html();
+    $('.sav-dropzone').dropzone({
+        parallelUploads: 5,
+        autoProcessQueue: false,
+        uploadMultiple: true,
+        maxFilesize: 10,
+        maxFiles: 2,
+        init: function() {
 
-    previewNode.remove();
+            var submit = document.querySelector('#save'),
+                $this = this;
 
-    var myDropzone = new Dropzone( document.body, {
-        url: "{{ $url }}",
-        thumbnailWidth: 80,
-        thumbnailHeight: 80,
-        parallelUploads: 20,
-        previewTemplate: previewTemplate,
-        autoQueue: false,
-        previewsContainer: "#previews",
-        clickable: ".fileinput-button"
+            submit.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                $this.processQueue();
+
+                $this.on("sendingmultiple", function(){
+                    console.log('enviando...')
+                });
+
+                $this.on("successmultiple", function(files, response) {
+                    console.log(response);
+                });
+
+                $this.on("errormultiple", function(files, response) {
+                    console.log('mierda');
+                });
+            });
+        }
     });
-
-    myDropzone.on("addedfile", function(file) {
-        $("input.save").click(function() {
-            myDropzone.enqueueFile(file);
-        });
-    });
-
 </script>
