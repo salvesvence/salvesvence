@@ -1,1 +1,3 @@
-<input type="submit" class="btn pull-right" id="save" value="GUARDAR">
+<button type="submit" class="btn btn-primary pull-right" id="save">
+    <i class="glyphicon glyphicon-save"></i> Guardar
+</button>
