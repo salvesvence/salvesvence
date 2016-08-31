@@ -17,6 +17,9 @@
         previewTemplate: previewTemplate,
         previewsContainer: "#preview",
         clickable: ".file-button",
+        acceptedFiles: '.jpg',
+        dictInvalidFileType: 'No puedes subir archivos de éste tipo.',
+        dictFileTooBig: 'El archivo es demasiado grande (@{{filesize}}MiB). Tamaño máximo: @{{maxFilesize}}MiB.',
         init: function() {
             var submit = $('#save'),
                 $this = this;
