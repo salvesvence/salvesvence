@@ -21,7 +21,8 @@
 
     <body id="app-layout">
         @include('web.organisms.navbar.back')
-        @include('web.molecules.modals.delete-modal')
+        @include('web.molecules.modals.delete')
+        @include('web.molecules.modals.info')
 
         @yield('content')
 
