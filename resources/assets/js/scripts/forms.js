@@ -1,10 +1,5 @@
 function appendErrors(errors) {
-    var modal = $('#modal-info .modal-body');
-
-    modal.html( errors.message[0] )
-         .append('<ul></ul>');
-
-    delete errors.message;
+    var modal = $('#modal-errors .modal-body');
 
     $.map(errors, function(value, key) {
         modal.find('ul').append('<li>' + value[0] + '</li>');
@@ -12,19 +7,17 @@ function appendErrors(errors) {
 }
 
 function sendForm(url, data) {
-    var modal = $('#modal-info');
-
     $.ajax({
         url: url,
         method: 'POST',
         data: data,
         success: function(results) {
-            modal.modal('show')
-                 .find('.modal-body')
-                 .html(results.message);
+            $('#modal-info').modal('show')
+                .find('.modal-body')
+                .html(results.message);
         },
         error: function(results) {
-            modal.modal('show');
+            $('#modal-errors').modal('show');
             appendErrors(results.responseJSON);
         }
     });

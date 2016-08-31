@@ -23,6 +23,7 @@
         @include('web.organisms.navbar.back')
         @include('web.molecules.modals.delete')
         @include('web.molecules.modals.info')
+        @include('web.molecules.modals.errors')
 
         @yield('content')
 
