@@ -1,4 +1,4 @@
-<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+<div class="modal fade" id="modal-info" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

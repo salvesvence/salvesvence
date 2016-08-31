@@ -33,11 +33,11 @@
                 });
 
                 $this.on("successmultiple", function(files, response) {
-                    console.log(response);
+                    showModal(response.message, $('#modal-info'));
                 });
 
                 $this.on("errormultiple", function(files, response) {
-                    console.log(response);
+                    showModal(response.message, $('#modal-info'));
                 });
             });
         }

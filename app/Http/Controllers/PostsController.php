@@ -113,6 +113,12 @@ class PostsController extends Controller
     {
         $post->update($request->all());
 
+        if($request->ajax()) {
+            return response()->json([
+                'message' => 'El artículo ha sido actualizado correctamente.'
+            ]);
+        }
+
         return redirect()->route('posts.index');
     }
 
