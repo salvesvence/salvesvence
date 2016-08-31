@@ -28,7 +28,8 @@ elixir(function(mix) {
             'vue/vue.min.js',
             'vue/vue-resource.min.js',
             'bootstrap/bootstrap.min.js',
-            'scripts/modals.js'
+            'scripts/modals.js',
+            'scripts/forms.js'
         ], 'public/js/app.min.js')
 
         .browserify([

@@ -18,26 +18,23 @@
         previewsContainer: "#preview",
         clickable: ".file-button",
         init: function() {
-
             var submit = $('#save'),
                 $this = this;
 
-            submit.click(function(e) {
-                e.preventDefault();
-                e.stopPropagation();
+            $this.on("sendingmultiple", function(){
+                submit.click(function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
 
-                $this.processQueue();
+                    $this.processQueue();
 
-                $this.on("sendingmultiple", function(){
-                    console.log('enviando...');
-                });
+                    $this.on("successmultiple", function(files, response) {
+                        showModal(response.message, $('#modal-info'));
+                    });
 
-                $this.on("successmultiple", function(files, response) {
-                    showModal(response.message, $('#modal-info'));
-                });
-
-                $this.on("errormultiple", function(files, response) {
-                    showModal(response.message, $('#modal-info'));
+                    $this.on("errormultiple", function(files, response) {
+                        showModal(response.message, $('#modal-info'));
+                    });
                 });
             });
         }
