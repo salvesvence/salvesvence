@@ -33,14 +33,23 @@ trait Imageble
         return $this;
     }
 
-    public function create()
+    /**
+     * Store all necessary thumbnails
+     */
+    public function boot()
     {
         $path = $this->baseDir . $this->fileName;
 
-        if(File::exists()) {
+        if(File::exists($path)) {
 
             foreach(['sm', 'md', 'lg'] as $key) {
-                File::copy($path, $this->photo->$key{'_thumbnail'});
+                $subDir = $this->baseDir . "{$key}_thumbnail";
+
+                if( !File::exists($subDir) ) {
+                    File::makeDirectory($subDir);
+                }
+
+                File::copy($path, $subDir . '/' . $this->fileName);
             }
         }
     }
