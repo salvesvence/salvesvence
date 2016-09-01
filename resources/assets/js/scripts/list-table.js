@@ -1,3 +1,4 @@
+
 Vue.transition('fade-out', {
    leaveClass: 'fadeOut'
 });
@@ -5,38 +6,24 @@ Vue.transition('fade-out', {
 Vue.component('list-table', {
    template: '#list-table',
 
-   props: [
-      'list',
-      'isVisible'
-   ],
+   props: ['list'],
 
    methods: {
-      delete: function() {
-         this.isVisible = false;
+      delete: function(slug) {
 
-         var $elem = $(this.$el),
-             url = $elem.find('a#button-delete').data('url');
+         var elem = $('a#' + slug + '-delete'),
+             url = elem.data('url');
+
+         elem.parents('tr').fadeToggle( "slow", "linear" );
 
          this.$http.get('/' + url).then((response) => {
-            this.showModal(response.data.message);
+            console.log(response.data.message);
          });
-      },
-
-      showModal: function(message) {
-         var modal = $('#delete-modal');
-
-         setTimeout(function() {
-            modal.find('.modal-body')
-                .append('<p>' + message +'</p>');
-
-            modal.modal('show');
-         }, 400);
       }
    },
 
    created() {
       this.list = JSON.parse(this.list).data;
-      this.isVisible = true;
    }
 });
 
