@@ -25,7 +25,7 @@ function sendForm(url, data) {
 
 (function () {
 
-    $('form').on('submit', function(e) {
+    $('.form').on('submit', function(e) {
         e.preventDefault();
         e.stopPropagation();
 
