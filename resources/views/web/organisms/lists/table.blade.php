@@ -10,9 +10,8 @@
                 <td class="text-center">Borrar</td>
             </tr>
         </thead>
-
         <tbody>
-            <tr v-for="item in list" v-show="isVisible" transition="fade-out" class="animated">
+            <tr v-for="item in list">
                 <td>@{{ item.id }}</td>
                 <td v-if="item.name">@{{ item.name }}</td>
                 <td v-if="item.title">@{{ item.title }}</td>
@@ -23,8 +22,8 @@
                 </td>
                 <td>
                     <a href="#"
-                       id="button-delete"
-                       @click="delete()"
+                       id="@{{ item.slug }}-delete"
+                       @click="delete(item.slug)"
                        class="btn-block text-center"
                        data-url="{{ $route }}/@{{ item.slug }}/delete"
                     >
