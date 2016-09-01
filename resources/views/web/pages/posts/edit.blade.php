@@ -8,7 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Crear Post:</div>
                     <div class="panel-body">
-                        <form id="update-category" class="form" action="{{ route('posts.update', $post->slug) }}" method="post">
+                        <form id="update-category" action="{{ route('posts.update', $post->slug) }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
                             <input type="hidden" name="category_id" value="{{ $post->category_id }}">

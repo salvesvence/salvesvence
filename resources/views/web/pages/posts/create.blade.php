@@ -8,7 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Crear Post:</div>
                     <div class="panel-body">
-                        <form id="store-category" class="form" action="{{ route('posts.store') }}" method="post" style="height: auto;overflow: hidden;">
+                        <form id="store-category" action="{{ route('posts.store') }}" method="post" style="height: auto;overflow: hidden;" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group col-sm-12 col-md-6">
                                 @include('web.atoms.inputs.title')
