@@ -73,14 +73,14 @@ class PostsController extends Controller
     {
         $dir = public_path() . '/uploads/posts/' . $post->id . '/';
 
-        if($request->hasFile('file')) {
-            $files = $request->file('file');
+        if($request->hasFile('images')) {
+            $files = $request->file('images');
 
             foreach($files as $file) {
                 $fileName = $file->getClientOriginalName();
                 $file->move($dir, $fileName);
 
-                $this->thumbnails($post, $dir, $fileName)->create();
+                $this->thumbnails($post, $dir, $fileName)->boot();
             }
         }
     }
@@ -117,6 +117,7 @@ class PostsController extends Controller
     public function update(PostRequest $request, $post)
     {
         $post->update($request->all());
+        $this->images($request, $post);
 
         if($request->ajax()) {
             return response()->json([
