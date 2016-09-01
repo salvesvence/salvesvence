@@ -2,6 +2,7 @@
 
 use App\Http\Requests\PostRequest;
 use App\Post;
+use App\Traits\Imageble;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,8 @@ class PostsController extends Controller
     {
         $this->middleware('auth');
     }
+
+    use Imageble;
 
     /**
      * Display a listing of posts.
@@ -76,6 +79,8 @@ class PostsController extends Controller
             foreach($files as $file) {
                 $fileName = $file->getClientOriginalName();
                 $file->move($dir, $fileName);
+
+                $this->thumbnails($post, $dir, $fileName)->create();
             }
         }
     }

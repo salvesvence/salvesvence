@@ -1,19 +1,47 @@
 <?php namespace App\Traits;
 
 use App\Photo;
+use Illuminate\Support\Facades\File;
 
 trait Imageble
 {
-    protected $dir;
+    protected $photo;
 
-    public function thumbnails($model, $dir)
+    protected $baseDir;
+
+    protected $fileName;
+
+    /**
+     * Create new photo register
+     *
+     * @param $model
+     * @param $baseDir
+     * @param $fileName
+     * @return $this
+     */
+    public function thumbnails($model, $baseDir, $fileName)
     {
-        $this->dir = $dir;
+        $this->baseDir = $baseDir;
+        $this->fileName = $fileName;
 
-        Photo::create([
-            'sm_thumbnail' => '',
-            'md_thumbnail' => '',
-            'lg_thumbnail' => ''
+        $this->photo = Photo::create([
+            'sm_thumbnail' => $baseDir . 'sm_thumbnail/' . $fileName,
+            'md_thumbnail' => $baseDir . 'md_thumbnail/' . $fileName,
+            'lg_thumbnail' => $baseDir . 'lg_thumbnail/' . $fileName
         ]);
+
+        return $this;
+    }
+
+    public function create()
+    {
+        $path = $this->baseDir . $this->fileName;
+
+        if(File::exists()) {
+
+            foreach(['sm', 'md', 'lg'] as $key) {
+                File::copy($path, $this->photo->$key{'_thumbnail'});
+            }
+        }
     }
 }
