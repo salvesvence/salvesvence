@@ -8,9 +8,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Crear Post:</div>
                     <div class="panel-body">
-                        <form id="store-category" action="{{ route('posts.store') }}" class="form sav-dropzone" method="post" style="height: auto;overflow: hidden;">
+                        <form id="store-category" class="form" action="{{ route('posts.store') }}" method="post" style="height: auto;overflow: hidden;">
                             {{ csrf_field() }}
-
                             <div class="form-group col-sm-12 col-md-6">
                                 @include('web.atoms.inputs.title')
                             </div>
@@ -23,7 +22,6 @@
                             <div class="col-sm-12">
                                 @include('web.atoms.inputs.images')
                             </div>
-
                             @include('web.molecules.forms.footer')
                         </form>
                     </div>
@@ -32,8 +30,4 @@
         </div>
     </div>
 
-@endsection
-
-@section('dropzone')
-    @include('vendor.scripts.dropzone')
 @endsection

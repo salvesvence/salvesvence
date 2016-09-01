@@ -29,7 +29,6 @@
 
         <script src="{{ elixir('js/app.min.js') }}"></script>
         <script src="{{ asset('js/scripts.js') }}"></script>
-        @yield('dropzone')
     </body>
 
 </html>
