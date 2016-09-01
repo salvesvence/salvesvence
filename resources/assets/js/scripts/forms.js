@@ -2,6 +2,8 @@ function appendErrors(errors) {
     var modal = $('#modal-errors .modal-body');
 
     $.map(errors, function(value, key) {
+
+        console.log(errors);
         modal.find('ul').append('<li>' + value[0] + '</li>');
     });
 }
