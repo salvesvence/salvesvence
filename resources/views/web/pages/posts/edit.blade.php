@@ -8,7 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Crear Post:</div>
                     <div class="panel-body">
-                        <form id="update-category" action="{{ route('posts.update', $post->slug) }}" class="sav-dropzone" method="post">
+                        <form id="update-category" action="{{ route('posts.update', $post->slug) }}" class="form sav-dropzone" method="post">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
 

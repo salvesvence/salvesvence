@@ -8,7 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Crear Post:</div>
                     <div class="panel-body">
-                        <form id="store-category" action="{{ route('posts.store') }}" class="sav-dropzone" method="post" style="height: auto;overflow: hidden;">
+                        <form id="store-category" action="{{ route('posts.store') }}" class="form sav-dropzone" method="post" style="height: auto;overflow: hidden;">
                             {{ csrf_field() }}
 
                             <div class="form-group col-sm-12 col-md-6">
