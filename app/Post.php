@@ -68,4 +68,14 @@ class Post extends Model
     {
         return $user->id === $this->user_id;
     }
+
+    /**
+     * Get all photos associated with the current post.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function photos()
+    {
+        return $this->belongsTo(Photo::class);
+    }
 }
