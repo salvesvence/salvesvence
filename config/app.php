@@ -165,6 +165,7 @@ return [
         |----------------------------------------------------------------------
         */
         Dimsav\Translatable\TranslatableServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class
     ],
 
     /*
@@ -216,6 +217,7 @@ return [
         | New Aliases
         |----------------------------------------------------------------------
         */
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];
