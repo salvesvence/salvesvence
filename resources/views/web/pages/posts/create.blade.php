@@ -31,3 +31,11 @@
     </div>
 
 @endsection
+
+@section('kartik-script)
+    <script>
+        (function () {
+            $(".kartic").fileinput({'showUpload':false, 'previewFileType':'any'});
+        })();
+    </script>
+@endsection

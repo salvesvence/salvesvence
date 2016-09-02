@@ -31,11 +31,7 @@
 
         <script src="{{ elixir('js/app.min.js') }}"></script>
         <script src="{{ asset('js/scripts.js') }}"></script>
-        <script>
-            (function () {
-                $(".kartic").fileinput();
-            })();
-        </script>
+        @yield('kartik-script')
     </body>
 
 </html>
