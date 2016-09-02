@@ -76,6 +76,17 @@ class Post extends Model
      */
     public function photos()
     {
-        return $this->belongsTo(Photo::class);
+        return $this->hasMany(Photo::class);
+    }
+
+    /**
+     * Attach the given photo to the current post.
+     * 
+     * @param Photo $photo
+     * @return mixed
+     */
+    public function attachPhoto(Photo $photo)
+    {
+        return $this->photos()->save($photo);
     }
 }

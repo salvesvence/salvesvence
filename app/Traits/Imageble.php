@@ -1,6 +1,7 @@
 <?php namespace App\Traits;
 
 use App\Photo;
+use App\Post;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
@@ -30,6 +31,8 @@ trait Imageble
             'md_thumbnail' => $baseDir . 'md_thumbnail/' . $fileName,
             'lg_thumbnail' => $baseDir . 'lg_thumbnail/' . $fileName
         ]);
+
+        $model->attachPhoto($this->photo);
 
         return $this;
     }
