@@ -14,7 +14,7 @@ Vue.component('list-table', {
          var elem = $('a#' + slug + '-delete'),
              url = elem.data('url');
 
-         elem.parents('tr').fadeToggle( "slow", "linear" );
+         elem.parents('tr').fadeToggle("slow", "linear");
 
          this.$http.get('/' + url).then((response) => {
             console.log(response.data.message);
