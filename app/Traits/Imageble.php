@@ -2,6 +2,7 @@
 
 use App\Photo;
 use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 trait Imageble
 {
@@ -42,15 +43,40 @@ trait Imageble
 
         if(File::exists($path)) {
 
-            foreach(['sm', 'md', 'lg'] as $key) {
+            foreach($this->ratios() as $key => $value) {
                 $subDir = $this->baseDir . "{$key}_thumbnail";
 
                 if( !File::exists($subDir) ) {
                     File::makeDirectory($subDir);
                 }
 
-                File::copy($path, $subDir . '/' . $this->fileName);
+                $this->resize($path, $subDir . '/' . $this->fileName, $value);
             }
         }
+    }
+
+    /**
+     * Get all necessary image ratios.
+     *
+     * @return array
+     */
+    private function ratios()
+    {
+        return ['sm' => 50, 'md' => 150, 'lg' => 300];
+    }
+
+    /**
+     * Resize the original image to all necessary ratios
+     *
+     * @param $initialPath
+     * @param $finalPath
+     * @param $ratio
+     */
+    private function resize($initialPath, $finalPath, $ratio)
+    {
+        Image::make($initialPath)->resize($ratio, null, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        })->save($finalPath);
     }
 }
