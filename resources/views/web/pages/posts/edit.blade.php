@@ -1,5 +1,9 @@
 @extends('web.templates.app')
 
+@section('kartik-stylesheets')
+    @include('vendor.stylesheets.kartik')
+@endsection
+
 @section('content')
 
     <div class="container">
@@ -21,6 +25,7 @@
                             <div class="col-sm-12">
                                 @include('web.atoms.inputs.images')
                             </div>
+                            <div class="col-sm-12"><hr></div>
                             @include('web.molecules.forms.footer')
                         </form>
                     </div>

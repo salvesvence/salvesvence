@@ -17,10 +17,12 @@
         @if(Auth::check())
             <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
         @endif
+        @yield('kartik-stylesheets')
     </head>
 
     <body id="app-layout">
         @include('web.organisms.navbar.back')
+
         @include('web.molecules.modals.delete')
         @include('web.molecules.modals.info')
         @include('web.molecules.modals.errors')
@@ -29,6 +31,11 @@
 
         <script src="{{ elixir('js/app.min.js') }}"></script>
         <script src="{{ asset('js/scripts.js') }}"></script>
+        <script>
+            (function () {
+                $(".kartic").fileinput();
+            })();
+        </script>
     </body>
 
 </html>

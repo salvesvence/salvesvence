@@ -1,8 +1,7 @@
-var elixir = require('laravel-elixir');
+var elixir = require('laravel-elixir'),
+    inProduction = elixir.config.production;
 
 elixir.config.sourcemaps = false;
-
-var inProduction = elixir.config.production;
 
 elixir(function(mix) {
 
@@ -27,6 +26,7 @@ elixir(function(mix) {
             'jquery/jquery.min.js',
             'vue/vue.min.js',
             'vue/vue-resource.min.js',
+            'kartik/fileinput.min.js',
             'bootstrap/bootstrap.min.js',
             'scripts/modals.js',
             'scripts/forms.js'
