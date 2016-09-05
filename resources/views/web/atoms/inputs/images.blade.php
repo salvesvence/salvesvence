@@ -1,2 +1,2 @@
-<label for="kartik-images">Imégenes</label>
+<label for="kartik-images">Imágenes</label>
 <input id="kartik-images" class="kartic" name="images[]" type="file" multiple="multiple">
