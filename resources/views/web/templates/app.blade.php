@@ -12,12 +12,12 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
         <link href="{{ elixir('css/app.min.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
         @if(Auth::check())
             <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
+            @yield('kartik-stylesheets')
         @endif
-        @yield('kartik-stylesheets')
+        @yield('slick-stylesheets')
     </head>
 
     <body id="app-layout">
@@ -32,6 +32,7 @@
         <script src="{{ elixir('js/app.min.js') }}"></script>
         <script src="{{ asset('js/scripts.js') }}"></script>
         @yield('kartik-script')
+        @yield('slick-script')
     </body>
 
 </html>

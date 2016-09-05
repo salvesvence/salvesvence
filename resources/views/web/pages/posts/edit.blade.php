@@ -4,6 +4,10 @@
     @include('vendor.stylesheets.kartik')
 @endsection
 
+@section('slick-stylesheets')
+    @include('vendor.stylesheets.slick')
+@endsection
+
 @section('content')
 
     <div class="container">

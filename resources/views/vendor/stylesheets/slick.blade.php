@@ -1,0 +1,1 @@
+<link href="{{ asset('css/slick/slick.css') }}" rel="stylesheet">
