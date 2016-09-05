@@ -23,7 +23,7 @@ trait Imageble
      */
     public function thumbnails($model, $baseDir, $fileName)
     {
-        $this->baseDir = $baseDir;
+        $this->baseDir = public_path() . $baseDir;
         $this->fileName = $fileName;
 
         $this->photo = Photo::create([
@@ -40,7 +40,7 @@ trait Imageble
     /**
      * Store all necessary thumbnails
      */
-    public function boot()
+    public function handle()
     {
         $path = $this->baseDir . $this->fileName;
 

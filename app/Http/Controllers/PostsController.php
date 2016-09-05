@@ -71,16 +71,19 @@ class PostsController extends Controller
      */
     private function images($request, $post)
     {
-        $dir = public_path() . '/uploads/posts/' . $post->id . '/';
+        $dir = '/uploads/posts/' . $post->id . '/';
 
         if($request->hasFile('images')) {
             $files = $request->file('images');
 
             foreach($files as $file) {
                 $fileName = $file->getClientOriginalName();
-                $file->move($dir, $fileName);
 
-                $this->thumbnails($post, $dir, $fileName)->boot();
+                $file->move(
+                    public_path() . $dir, $fileName
+                );
+
+                $this->thumbnails($post, $dir, $fileName)->handle();
             }
         }
     }
