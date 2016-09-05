@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class Post extends Model
 {
@@ -25,6 +26,14 @@ class Post extends Model
 
         static::saving(function($post) {
             $post->slug = str_slug($post->title);
+        });
+
+        static::deleting(function($post) {
+            $dir = public_path() . '/uploads/posts/' . $post->id;
+
+            if(File::exists($dir)) {
+                File::deleteDirectory($dir);
+            }
         });
     }
 

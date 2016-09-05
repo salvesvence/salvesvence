@@ -142,7 +142,7 @@ class PostsController extends Controller
         $post->delete();
 
         return response()->json([
-            'message' => 'El post ha sido borrado correctamente'
+            'message' => $post->delete()
         ]);
     }
 }
