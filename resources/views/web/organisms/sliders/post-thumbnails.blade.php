@@ -2,13 +2,23 @@
     @include('vendor.stylesheets.slick')
 @endsection
 
-<div class="post-thumbnails-slider" {{ $post->photos->count() >= 3 ?: "data-slick='{slidesToShow: 3, slidesToScroll: 3}'" }}>
-    @foreach($post->photos as $photo)
-        <div class="wrapper-thumbnails">
-            <img data-lazy='{{ asset("{$photo->lg_thumbnail}") }}'>
-        </div>
-    @endforeach
-</div>
+@if($post->photos->count() < 2)
+
+    <div class="wrapper-thumbnails" style="text-align: center">
+        <img src='{{ asset("{$post->photos->first()->lg_thumbnail}") }}'>
+    </div>
+
+@else
+
+    <div class="post-thumbnails-slider" {{ $post->photos->count() >= 3 ?: "data-slick='{slidesToShow: 3, slidesToScroll: 3}'" }}>
+        @foreach($post->photos as $photo)
+            <div class="wrapper-thumbnails">
+                <img data-lazy='{{ asset("{$photo->lg_thumbnail}") }}'>
+            </div>
+        @endforeach
+    </div>
+
+@endif
 
 @section('slick-script')
     <script type="text/javascript" src="{{ asset('js/slick/slick.min.js') }}"></script>
