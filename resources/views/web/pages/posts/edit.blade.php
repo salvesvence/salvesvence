@@ -1,9 +1,5 @@
 @extends('web.templates.app')
 
-@section('kartik-stylesheets')
-    @include('vendor.stylesheets.kartik')
-@endsection
-
 @section('content')
 
     <div class="container">
@@ -38,12 +34,4 @@
         </div>
     </div>
 
-@endsection
-
-@section('kartik-script')
-    <script>
-        (function () {
-            $(".kartic").fileinput({"showUpload":false, "previewFileType":"any"});
-        })();
-    </script>
 @endsection

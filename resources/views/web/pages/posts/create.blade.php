@@ -22,6 +22,7 @@
                             <div class="col-sm-12">
                                 @include('web.atoms.inputs.images')
                             </div>
+                            <div class="col-sm-12"><hr></div>
                             @include('web.molecules.forms.footer')
                         </form>
                     </div>
@@ -30,12 +31,4 @@
         </div>
     </div>
 
-@endsection
-
-@section('kartik-script)
-    <script>
-        (function () {
-            $(".kartic").fileinput({'showUpload':false, 'previewFileType':'any'});
-        })();
-    </script>
 @endsection
