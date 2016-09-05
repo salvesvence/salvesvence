@@ -16,23 +16,22 @@ trait Imageble
     /**
      * Create new photo register
      *
-     * @param $model
+     * @param $post
      * @param $baseDir
      * @param $fileName
      * @return $this
      */
-    public function thumbnails($model, $baseDir, $fileName)
+    public function thumbnails($post, $baseDir, $fileName)
     {
         $this->baseDir = public_path() . $baseDir;
         $this->fileName = $fileName;
 
         $this->photo = Photo::create([
+            'post_id' => $post->id,
             'sm_thumbnail' => $baseDir . 'sm_thumbnail/' . $fileName,
             'md_thumbnail' => $baseDir . 'md_thumbnail/' . $fileName,
             'lg_thumbnail' => $baseDir . 'lg_thumbnail/' . $fileName
         ]);
-
-        $model->attachPhoto($this->photo);
 
         return $this;
     }

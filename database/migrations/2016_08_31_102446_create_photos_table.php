@@ -14,10 +14,17 @@ class CreatePhotosTable extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('post_id');
+            $table->integer('post_id')->unsigned();
             $table->string('sm_thumbnail');
             $table->string('md_thumbnail');
             $table->string('lg_thumbnail');
+
+            $table->foreign('post_id')
+                  ->references('id')
+                  ->on('posts')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
