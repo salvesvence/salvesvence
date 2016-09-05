@@ -32,6 +32,7 @@ elixir(function(mix) {
             'vue/vue-resource.min.js',
             'kartik/fileinput.min.js',
             'bootstrap/bootstrap.min.js',
+            'bootstrap/bootstrap.min.js',
             'scripts/modals.js',
             'scripts/forms.js'
         ], 'public/js/app.min.js')
