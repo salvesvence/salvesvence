@@ -5,7 +5,8 @@ elixir.config.sourcemaps = false;
 
 elixir(function(mix) {
 
-    var bootstrapPath = 'node_modules/bootstrap-sass/assets';
+    var bootstrapPath = 'node_modules/bootstrap-sass/assets',
+        slickPath = 'node_modules/slick-carousel/slick';
 
     if (! inProduction) {
 
@@ -16,6 +17,9 @@ elixir(function(mix) {
                 'node_modules/vue/dist/vue.min.js',
                 'node_modules/vue-resource/dist/vue-resource.min.js'
             ], 'resources/assets/js/vue')
+            .copy(slickPath + '/fonts', 'public/fonts/slick')
+            .copy(slickPath + '/*.css', 'public/css/slick')
+            .copy(slickPath + '/*.js', 'public/js/slick')
     }
 
     mix.sass('app.scss', 'resources/assets/css/app.css')
