@@ -1,0 +1,13 @@
+.post-thumbnails-slider {
+  background-color: grey;
+
+  .wrapper-thumbnails {
+    padding: 10px
+  }
+
+  img {
+    @extend .img-responsive;
+    @extend .img-thumbnail;
+    margin: 0 auto;
+  }
+}
