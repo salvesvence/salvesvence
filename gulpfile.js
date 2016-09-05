@@ -20,6 +20,7 @@ elixir(function(mix) {
             .copy(slickPath + '/fonts', 'public/fonts/slick')
             .copy(slickPath + '/*.css', 'public/css/slick')
             .copy(slickPath + '/*.js', 'public/js/slick')
+            .copy(slickPath + '/ajax-loader.gif', 'public/gifs/ajax-loader.gif')
     }
 
     mix.sass('app.scss', 'resources/assets/css/app.css')
