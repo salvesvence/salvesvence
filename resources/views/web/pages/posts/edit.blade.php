@@ -4,10 +4,6 @@
     @include('vendor.stylesheets.kartik')
 @endsection
 
-@section('slick-stylesheets')
-    @include('vendor.stylesheets.slick')
-@endsection
-
 @section('content')
 
     <div class="container">
@@ -31,9 +27,7 @@
                             </div>
                             <div class="col-sm-12"><hr></div>
                             <div class="col-sm-12">
-                                @foreach($post->photos as $photo)
-                                    <img src='{{ asset("{$photo->lg_thumbnail}") }}' class="img-responsive img-thumbnail">
-                                @endforeach
+                                @include('web.organisms.sliders.post-thumbnails')
                             </div>
                             <div class="col-sm-12"><hr></div>
                             @include('web.molecules.forms.footer')
