@@ -2,9 +2,102 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    //
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['author_id', 'category_id', 'slug', 'title', 'body'];
+
+    /**
+     * Create the slug field when we save a new post register.
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($post) {
+            $post->author_id = Auth::user()->id;
+        });
+
+        static::saving(function($post) {
+            $post->slug = str_slug($post->title);
+        });
+
+        static::deleting(function($post) {
+            $dir = public_path() . '/uploads/posts/' . $post->id;
+
+            if(File::exists($dir)) {
+                File::deleteDirectory($dir);
+            }
+        });
+    }
+
+    /**
+     * User associated with the current post.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
+
+    /**
+     * Category associated with the current post.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Tags associated with the current post.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    /**
+     * If the current post is owner from the user given.
+     *
+     * @param User $user
+     * @return bool
+     */
+    public function isOwnedBy(User $user)
+    {
+        return $user->id === $this->user_id;
+    }
+
+    /**
+     * Get all photos associated with the current post.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
+
+    /**
+     * Attach the given photo to the current post.
+     *
+     * @param Photo $photo
+     * @return mixed
+     */
+    public function attachPhoto(Photo $photo)
+    {
+        return $this->photos()->save($photo);
+    }
 }
