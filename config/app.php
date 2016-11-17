@@ -164,10 +164,11 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
-         */
-
-        //
+        |----------------------------------------------------------------------
+        | New Package Service Providers
+        |----------------------------------------------------------------------
+        */
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -226,6 +227,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*
+        |----------------------------------------------------------------------
+        | New Aliases
+        |----------------------------------------------------------------------
+        */
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];
