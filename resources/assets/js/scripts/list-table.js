@@ -8,10 +8,10 @@ Vue.component('list-table', {
     props: ['list'],
 
     methods: {
-        delete: function(slug) {
+        delete: (slug) => {
 
-            var elem = $('a#' + slug + '-delete'),
-                url = elem.data('url');
+            const elem = $('a#' + slug + '-delete'),
+                  url = elem.data('url');
 
             elem.parents('tr').fadeToggle("slow", "linear");
 
